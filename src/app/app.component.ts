@@ -9,6 +9,6 @@ export class AppComponent {
   isHeaderSticky: boolean;
 
   constructor() {
-    this.isHeaderSticky = true;
+    this.isHeaderSticky = false;
   }
 }
