@@ -2,10 +2,20 @@
 <div class="container">
   <div class="row">
     <!--<div class="col-md-6" *ngFor="let item of data">-->
-      <!--<app-card-col-6 [data]="item"></app-card-col-6>-->
+    <!--<app-card-col-6 [data]="item"></app-card-col-6>-->
     <!--</div>-->
     <div class="col-md-4">
       <app-card-col-4-long [data]="data[2]"></app-card-col-4-long>
+    </div>
+    <div class="col-md-8">
+      <div class="row">
+        <app-card-col-4-small class="col" [data]="data[0]"></app-card-col-4-small>
+        <app-card-col-4-small class="col" [data]="data[1]"></app-card-col-4-small>
+      </div>
+      <div class="row mt-3">
+        <app-card-col-4-small class="col" [data]="data[0]"></app-card-col-4-small>
+        <app-card-col-4-small class="col" [data]="data[1]"></app-card-col-4-small>
+      </div>
     </div>
   </div>
 </div>

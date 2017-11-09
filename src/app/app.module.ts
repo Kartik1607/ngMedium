@@ -9,6 +9,7 @@ import { HeadComponent } from './main-content/head/head.component';
 import { CardCol6Component } from './cards/card-col-6/card-col-6.component';
 import { AuthorBarComponent } from './cards/author-bar/author-bar.component';
 import { CardCol4LongComponent } from './cards/card-col-4-long/card-col-4-long.component';
+import { CardCol4SmallComponent } from './cards/card-col-4-small/card-col-4-small.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { CardCol4LongComponent } from './cards/card-col-4-long/card-col-4-long.c
     HeadComponent,
     CardCol6Component,
     AuthorBarComponent,
-    CardCol4LongComponent
+    CardCol4LongComponent,
+    CardCol4SmallComponent
   ],
   imports: [
     BrowserModule
