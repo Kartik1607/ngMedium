@@ -1,0 +1,11 @@
+<div class="card">
+  <div class="main-img" [style.background-image]="imgUrl"> </div>
+  <div class="card-body">
+    <h4 class="card-title">{{data.title}}</h4>
+    <p class="card-text subHeading">{{data.content}}</p>
+    <div class="bottomContainer m-2">
+      <app-author-bar [timeToRead]="timeToRead" [publishDate]="formattedDate" [authorName]="data.authorName">
+      </app-author-bar>
+    </div>
+  </div>
+</div>

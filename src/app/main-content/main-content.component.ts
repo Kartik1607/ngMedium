@@ -27,6 +27,14 @@ export class MainContentComponent implements OnInit {
       publishDate: ' ',
       ratings: 0,
       authorName: `Weston Girot`
+    }, {
+      id: '1',
+      title: `Forget the South China Sea — data has become the new battleground`,
+      content: `She realised that this new phenomenon was linked to a form of Russian information warfare.`,
+      imgUrl: `https://cdn-images-1.medium.com/max/1000/1*pBaiHj39xHL_HnNndJq_GA.jpeg`,
+      publishDate: ' ',
+      ratings: 0,
+      authorName: `James Eagle`
     }];
   }
 
