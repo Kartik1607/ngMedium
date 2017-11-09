@@ -7,6 +7,7 @@ import { MainContentComponent } from './main-content/main-content.component';
 import { FooterComponent } from './footer/footer/footer.component';
 import { HeadComponent } from './main-content/head/head.component';
 import { CardCol6Component } from './cards/card-col-6/card-col-6.component';
+import { AuthorBarComponent } from './cards/author-bar/author-bar.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { CardCol6Component } from './cards/card-col-6/card-col-6.component';
     MainContentComponent,
     FooterComponent,
     HeadComponent,
-    CardCol6Component
+    CardCol6Component,
+    AuthorBarComponent
   ],
   imports: [
     BrowserModule

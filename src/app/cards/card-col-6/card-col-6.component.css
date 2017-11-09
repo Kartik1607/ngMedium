@@ -13,4 +13,20 @@
 
 .subHeading {
   color: darkgray;
+  overflow: hidden;
+  display: block;
+  word-wrap: break-word;
+  max-height: 4.2em;
+  line-height: 1.4em;
+}
+
+.bottomContainer {
+  position: absolute;
+  bottom: 0;
+  font-size:0.8em;
+}
+
+.mainContainer {
+  border: 1px solid #EEEEEE;
+  box-shadow: 5px 5px 2px #EEEEEE;
 }

@@ -1,11 +1,8 @@
 <app-head></app-head>
 <div class="container">
   <div class="row">
-    <div class="col">
-      <app-card-col-6></app-card-col-6>
-    </div>
-    <div class="col">
-      <app-card-col-6></app-card-col-6>
+    <div class="col" *ngFor="let item of data">
+      <app-card-col-6 [data]="item"></app-card-col-6>
     </div>
   </div>
 </div>

@@ -1,7 +1,15 @@
-<div class="media border">
+<div class="media mainContainer">
   <div class="main-img" [style.background-image]="imgUrl"> </div>
   <div class="media-body m-3">
-    <h5 class="mt-0">{{heading}}</h5>
-      <div class="subHeading">{{subHeading}}<div>
+    <h5 class="mt-0">{{data.title}}</h5>
+      <div class="subHeading">{{data.content}}</div>
+
+
+    <div class="bottomContainer m-2">
+      <app-author-bar
+        [authorName]="data.authorName" [publishDate]="formattedDate" [timeToRead]="timeToRead">
+      </app-author-bar>
+    </div>
+
   </div>
 </div>

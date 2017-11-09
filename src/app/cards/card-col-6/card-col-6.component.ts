@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import {DataModel} from '../../common/data';
 
 @Component({
   selector: 'app-card-col-6',
@@ -6,20 +7,27 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./card-col-6.component.css']
 })
 export class CardCol6Component implements OnInit {
-  heading: string;
+  @Input() data: DataModel;
   imgUrl: string;
-  subHeading: string;
-  constructor() {
-    this.heading = 'Thus Spoke Zarathustra” by Friedrich Nietzsche';
-    this.imgUrl = this.getBackgroundImage(
-      'https://cdn-images-1.medium.com/max/2000/1*v82vpkP70oqPupKuTolNdg.png');
-    this.subHeading = `Part 4 in Arc’s series: The Greatest Works In Philosophy`;
-  }
+  formattedDate: string;
+  timeToRead: string;
+  constructor() {}
 
   private  getBackgroundImage(url: string): string {
     return `url(${url})`;
   }
+
+  private formatDate(date: string): string{
+    return '7 Nov';
+  }
+
+  private getTimeToRead(content: string): string {
+    return '7 min read';
+  }
   ngOnInit() {
+    this.imgUrl = this.getBackgroundImage(this.data.imgUrl);
+    this.formattedDate = this.formatDate(this.data.publishDate);
+    this.timeToRead = this.getTimeToRead(this.data.content);
   }
 
 }
