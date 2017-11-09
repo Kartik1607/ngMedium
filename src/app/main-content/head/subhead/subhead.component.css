@@ -1,0 +1,11 @@
+.title {
+  border-bottom: solid 1.2px black;
+  display: inline-block
+}
+
+.underLine {
+  position: absolute;
+  border-bottom: solid 1px lightgray;
+  bottom: 0;
+  width: 100%
+}

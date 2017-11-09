@@ -1,0 +1,27 @@
+<app-head></app-head>
+<div class="container">
+  <app-subhead title="Popular on Medium"></app-subhead>
+  <div class="row">
+    <div class="col-md-6 mt-4" *ngFor="let item of popularData">
+      <app-card-col-6 [data]="item"></app-card-col-6>
+    </div>
+  </div>
+
+  <app-subhead title="Technology"></app-subhead>
+
+  <div class="row mt-4">
+    <div class="col-md-4">
+      <app-card-col-4-long [data]="technologyData[0]"></app-card-col-4-long>
+    </div>
+    <div class="col-md-8">
+      <div class="row">
+        <app-card-col-4-small class="col" [data]="technologyData[1]"></app-card-col-4-small>
+        <app-card-col-4-small class="col" [data]="technologyData[2]"></app-card-col-4-small>
+      </div>
+      <div class="row mt-3">
+        <app-card-col-4-small class="col" [data]="technologyData[3]"></app-card-col-4-small>
+        <app-card-col-4-small class="col" [data]="technologyData[4]"></app-card-col-4-small>
+      </div>
+    </div>
+  </div>
+</div>
