@@ -12,6 +12,9 @@ import { CardCol4LongComponent } from './cards/card-col-4-long/card-col-4-long.c
 import { CardCol4SmallComponent } from './cards/card-col-4-small/card-col-4-small.component';
 import { HomeComponentComponent } from './main-content/home-component/home-component.component';
 import { SubheadComponent } from './main-content/head/subhead/subhead.component';
+import { GroupFourComponent } from './cards/group-four/group-four.component';
+import { GroupFiveComponent } from './cards/group-five/group-five.component';
+import { CategoryComponentComponent } from './main-content/category-component/category-component.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,10 @@ import { SubheadComponent } from './main-content/head/subhead/subhead.component'
     CardCol4LongComponent,
     CardCol4SmallComponent,
     HomeComponentComponent,
-    SubheadComponent
+    SubheadComponent,
+    GroupFourComponent,
+    GroupFiveComponent,
+    CategoryComponentComponent
   ],
   imports: [
     BrowserModule

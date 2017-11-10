@@ -8,6 +8,9 @@ import {DataModel} from '../../common/data';
 export class HomeComponentComponent implements OnInit {
   popularData: DataModel[];
   technologyData: DataModel[];
+  creativeData: DataModel[];
+  entreData: DataModel[];
+
   constructor() {
     this.popularData = [
       {
@@ -81,6 +84,90 @@ export class HomeComponentComponent implements OnInit {
         authorName: `Jean-Louis Gassée`,
         content: `After the early fast growth iPhone years, Apple appeared to stumble. Profit and revenue began to fall starting in 2013. Now, a bold bet, the iPhone X, covered by the iPhone 8, appears on the verge of paying off.`,
         imgUrl: `https://cdn-images-1.medium.com/max/1600/1*AAr1o6T8z3cANSGgljTjjw.png`,
+        ratings: 0,
+        publishDate: '0',
+        id: '0'
+      }];
+    this.creativeData = [
+      {
+        title: `8 Habits Every Creative Should Have: An Illustrated Guide!`,
+        authorName: `Threadless`,
+        content: `In a perfect world, we would all have time to practice our creative craft every day without ever getting artist’s block`,
+        imgUrl: `https://cdn-images-1.medium.com/max/2000/1*Hvp-eIv3fj-WGpY_ouLIJA.png`,
+        ratings: 0,
+        publishDate: '0',
+        id: '0'
+      }, {
+        title: `How I Got Past Writer’s Block With Yoga`,
+        authorName: `Dani Fankhauser`,
+        content: `In January 2017, I set a goal for myself. For as long as I can remember, I’ve wanted to write books. I decided that this year, I would not only write a book, but also publish it.`,
+        imgUrl: `https://cdn-images-1.medium.com/max/2000/1*KSc6BT3LcOq5hxCXOch0aw.jpeg`,
+        ratings: 0,
+        publishDate: '0',
+        id: '0'
+      }, {
+        title: `The river of creativity is always flowing`,
+        authorName: `Susan Brassfield Cogan`,
+        content: `The miracle of always more`,
+        imgUrl: `https://cdn-images-1.medium.com/max/2000/1*_H-lDHRqTZODo19Z2Qn--Q.jpeg`,
+        ratings: 0,
+        publishDate: '0',
+        id: '0'
+      }, {
+        title: `How To Develop Your Creative Thinking`,
+        authorName: `Nicky Blue`,
+        content: `“Every child is an artist, the problem is staying an artist when you grow up.”`,
+        imgUrl: `https://cdn-images-1.medium.com/max/1000/1*taeuBuWsE4dFkfw8PfVRLQ.jpeg`,
+        ratings: 0,
+        publishDate: '0',
+        id: '0'
+      }, {
+        title: `What Is The Real Reason Why You Write?`,
+        authorName: `Paul Cantor`,
+        content: `For years, I often struggled telling people why, exactly, I wrote.`,
+        imgUrl: `https://cdn-images-1.medium.com/max/1000/1*2L9guCqnZBpwm4GvDEPdng.jpeg`,
+        ratings: 0,
+        publishDate: '0',
+        id: '0'
+      }];
+    this.entreData = [
+      {
+        title: `The problem with telling music school grads to ‘be entrepreneurial’`,
+        authorName: `Threadless`,
+        content: `I lived in a box for four years. Chaos of this world, a little practice room with stained carpet and decades-old curtains and unflattering light was my haven. The is where I had my `,
+        imgUrl: `https://cdn-images-1.medium.com/max/750/1*trdnBH20z0ppQA87O_DGbA.gif`,
+        ratings: 0,
+        publishDate: '0',
+        id: '0'
+      }, {
+        title: `How I Got Past Writer’s Block With Yoga`,
+        authorName: `Dani Fankhauser`,
+        content: `In January 2017, I set a goal for myself. For as long as I can remember, I’ve wanted to write books. I decided that this year, I would not only write a book, but also publish it.`,
+        imgUrl: `https://cdn-images-1.medium.com/max/2000/1*KSc6BT3LcOq5hxCXOch0aw.jpeg`,
+        ratings: 0,
+        publishDate: '0',
+        id: '0'
+      }, {
+        title: `The river of creativity is always flowing`,
+        authorName: `Susan Brassfield Cogan`,
+        content: `The miracle of always more`,
+        imgUrl: `https://cdn-images-1.medium.com/max/2000/1*_H-lDHRqTZODo19Z2Qn--Q.jpeg`,
+        ratings: 0,
+        publishDate: '0',
+        id: '0'
+      }, {
+        title: `How To Develop Your Creative Thinking`,
+        authorName: `Nicky Blue`,
+        content: `“Every child is an artist, the problem is staying an artist when you grow up.”`,
+        imgUrl: `https://cdn-images-1.medium.com/max/1000/1*taeuBuWsE4dFkfw8PfVRLQ.jpeg`,
+        ratings: 0,
+        publishDate: '0',
+        id: '0'
+      }, {
+        title: `What Is The Real Reason Why You Write?`,
+        authorName: `Paul Cantor`,
+        content: `For years, I often struggled telling people why, exactly, I wrote.`,
+        imgUrl: `https://cdn-images-1.medium.com/max/1000/1*2L9guCqnZBpwm4GvDEPdng.jpeg`,
         ratings: 0,
         publishDate: '0',
         id: '0'
