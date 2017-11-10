@@ -15,6 +15,9 @@ import { SubheadComponent } from './main-content/head/subhead/subhead.component'
 import { GroupFourComponent } from './cards/group-four/group-four.component';
 import { GroupFiveComponent } from './cards/group-five/group-five.component';
 import { CategoryComponentComponent } from './main-content/category-component/category-component.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import {RouterModule} from '@angular/router';
+import {appRoutes} from './common/routes';
 
 @NgModule({
   declarations: [
@@ -31,10 +34,12 @@ import { CategoryComponentComponent } from './main-content/category-component/ca
     SubheadComponent,
     GroupFourComponent,
     GroupFiveComponent,
-    CategoryComponentComponent
+    CategoryComponentComponent,
+    PageNotFoundComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]

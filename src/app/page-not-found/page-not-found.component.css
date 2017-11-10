@@ -1,0 +1,10 @@
+.head {
+  font-size: 10em;
+  padding: 30px;
+}
+
+.message {
+  font-size: 3em;
+  color: gray;
+  margin: auto 0px;
+}
