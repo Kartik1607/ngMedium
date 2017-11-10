@@ -5,7 +5,7 @@
       <!--TODO: Add Search bar -->
       </div>
       <div class="col text-center" style="font-family: SansSerif">
-        <h1><strong>Medium</strong></h1>
+        <a routerLink="" class="logoTitle"><h1><strong>Medium</strong></h1></a>
       </div>
       <div class="col d-flex justify-content-end">
         <button type="button" class="btn btn-outline-success align-self-center">New Post</button>
@@ -14,15 +14,15 @@
 </div>
 </div>
 
-<div *ngIf="!sticky" class="sticky-top border border-top-0 border-left-0 border-right-0 blur">
+<div *ngIf="!sticky" class="sticky-top border border-top-0 border-left-0 border-right-0 blur ">
   <div class="container">
     <nav class="navbar navbar-expand-sm navbar-light">
       <div class="navbar-nav">
-        <a class="nav-item nav-link active" href="#">Home</a>
-        <a class="nav-item nav-link" href="#">Technology</a>
-        <a class="nav-item nav-link" href="#">Creativity</a>
-        <a class="nav-item nav-link" href="#">Entrepreneurship</a>
-        <a class="nav-item nav-link" href="#">Popular</a>
+        <a class="nav-item nav-link" routerLinkActive="active" *ngFor="let item of links"
+          routerLink={{item.route}}>
+          {{item.name}}
+        </a>
+
       </div>
     </nav>
   </div>

@@ -5,6 +5,7 @@ import {PageNotFoundComponent} from '../page-not-found/page-not-found.component'
 
 export const appRoutes: Routes = [
   { path: 'category/:category', component: CategoryComponentComponent },
+  { path: 'category', redirectTo: ''},
   { path: '', component: HomeComponentComponent},
   { path: '**', component: PageNotFoundComponent}
 ]
