@@ -1,3 +1,8 @@
-<p>
-  category-component works!
-</p>
+<div class="container">
+  <app-head headTitle="Technology" headSubTitle="The download."></app-head>
+
+  <div *ngFor="let item of renderData">
+    <app-group-four *ngIf="item.type === 0" [data]="item.data"></app-group-four>
+    <app-group-five *ngIf="item.type === 1" [data]="item.data"></app-group-five>
+  </div>
+</div>

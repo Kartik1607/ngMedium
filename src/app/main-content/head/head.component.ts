@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-head',
@@ -7,11 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeadComponent implements OnInit {
 
-  headTitle: string;
-  headSubTitle: string;
+  @Input() headTitle: string;
+  @Input() headSubTitle: string;
   constructor() {
-    this.headTitle = 'Technology';
-    this.headSubTitle = 'The download.';
   }
 
   ngOnInit() {
