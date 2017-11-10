@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import {DataModel} from '../../common/data';
+import {ISticky} from "../../common/ISticky";
 @Component({
   selector: 'app-home-component',
   templateUrl: './home-component.component.html',
   styleUrls: ['./home-component.component.css']
 })
-export class HomeComponentComponent implements OnInit {
+export class HomeComponentComponent implements OnInit, ISticky {
   popularData: DataModel[];
   technologyData: DataModel[];
   creativeData: DataModel[];
@@ -177,4 +178,7 @@ export class HomeComponentComponent implements OnInit {
   ngOnInit() {
   }
 
+  needSticky() {
+    return false;
+  }
 }

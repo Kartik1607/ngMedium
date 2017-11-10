@@ -9,6 +9,10 @@ export class AppComponent {
   isHeaderSticky: boolean;
 
   constructor() {
-    this.isHeaderSticky = false;
+    this.isHeaderSticky = true;
+  }
+
+  componentAdded(event) {
+    this.isHeaderSticky = event.needSticky();
   }
 }

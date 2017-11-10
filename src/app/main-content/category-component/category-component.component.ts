@@ -1,12 +1,13 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {DataModel} from '../../common/data';
+import {ISticky} from "../../common/ISticky";
 
 @Component({
   selector: 'app-category-component',
   templateUrl: './category-component.component.html',
   styleUrls: ['./category-component.component.css']
 })
-export class CategoryComponentComponent implements OnInit {
+export class CategoryComponentComponent implements OnInit, ISticky {
   @Input() category: string;
   data: DataModel[];
   renderData: any[];
@@ -203,4 +204,7 @@ export class CategoryComponentComponent implements OnInit {
     this.setRenderData();
   }
 
+  needSticky() {
+    return false;
+  }
 }
