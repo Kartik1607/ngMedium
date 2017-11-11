@@ -20,11 +20,18 @@ app.listen(constants.PORT, () => {
     console.log(colors.green('Node started'))
 });
 
-app.get('/posts/:category', (req, res) => {
+app.get('/category/:category', (req, res) => {
     let limit = req.query.limit;
-    if (limit === undefined || typeof limit !== 'number' ) {
+    try {
+        limit = + limit;
+    } catch (e) {
         limit = 0;
     }
+    if(req.params.category === 'popular'){
+        Posts.findPopular(0, (err)=>{console.log(colors.red(err))}, (posts)=> {res.send(posts)});
+        return;
+    }
+
     Posts.findByCategory(req.params.category, limit, (err)=>{
         console.log(colors.red(err));
     }, (posts) => {
@@ -33,7 +40,9 @@ app.get('/posts/:category', (req, res) => {
 });
 
 app.post('/posts', (req, res) => {
-    Contact.save(req.body, (err) => {
+    let post = req.body;
+    post.timeToRead = constants.getTimeToRead(post.contentDetail);
+    Posts.save(post, (err) => {
         console.log(colors.red(err))
     }, (contact) => {
         res.send(contact)
@@ -47,4 +56,12 @@ app.get('/posts/:id', (req, res) => {
     }, (post) => {
         res.send(post)
     })
+});
+
+app.get('/posts', (req, res) => {
+   Posts.findHomePosts((err)=>{
+       console.log(colors.red(err));
+   }, (posts)=> {
+       res.send(posts);
+   })
 });
