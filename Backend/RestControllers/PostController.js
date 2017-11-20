@@ -1,5 +1,6 @@
 const Posts = require('../Services/PostService');
 const colors = require('colors');
+const constants = require('../constants');
 
 module.exports = function(app) {
     app.get('/category/:category', (req, res) => {

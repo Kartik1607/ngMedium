@@ -11,17 +11,17 @@ let postSchema = new mongoose.Schema({
     timeToRead: String,
     totalClaps: Number,
     image: String,
-    userId: {type: Schema.Types.ObjectId, ref: 'User'}
+    user: {type: Schema.Types.ObjectId, ref: 'User'}
 });
 
 postSchema.statics.findByCategory = function(category, lim, cb) {
     if(lim === 0) {
         return this.find({ category: category })
-            .populate('User')
+            .populate('user','_id name')
             .exec(cb);
     } else {
         return this.find({category: category}).limit(lim)
-            .populate('User')
+            .populate('user', '_id name')
             .exec(cb);
     }
 };

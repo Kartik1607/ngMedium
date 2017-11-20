@@ -8,7 +8,7 @@ module.exports = {
     {
         if(limit === 0) {
             PostModel.find()
-                .populate('User')
+                .populate('user', 'name _id')
                 .sort({totalClaps: -1})
                 .exec((err, posts) => {
                     if (err) {
@@ -19,7 +19,7 @@ module.exports = {
                 })
         }else {
             PostModel.find()
-                .populate('User')
+                .populate('user', 'name _id')
                 .sort({totalClaps: -1})
                 .limit(limit)
                 .exec((err, posts) => {
@@ -34,7 +34,7 @@ module.exports = {
 
     findById: function (id, error, success) {
         PostModel.findById(id)
-            .populate('User')
+            .populate('user', 'name _id')
             .exec((err, posts)=> {
                 if (err) {
                     error(err)
@@ -56,7 +56,8 @@ module.exports = {
     },
 
     save: function (model, error, success) {
-        let post = new PostModel(model)
+        model._id = new mongoose.Types.ObjectId();
+        let post = new PostModel(model);
         post.save((err, posts) => {
             if (err) {
                 error(err)
@@ -68,7 +69,7 @@ module.exports = {
 
     updateById: function (id, model, error, success) {
         PostModel.findByIdAndUpdate(id, model)
-            .populate('User')
+            .populate('user', 'name _id')
             .exec((err, posts) => {
                 if (err) {
                     error(err)
