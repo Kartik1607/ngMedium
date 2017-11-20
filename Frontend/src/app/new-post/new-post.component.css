@@ -1,0 +1,39 @@
+.width60 {
+  width:60%;
+  margin: auto;
+}
+
+@media (max-width: 769px) {
+  .width60 {
+    width:100%;
+  }
+}
+
+.main-img {
+  overflow: hidden;
+  width: 100%;
+}
+
+.post-content {
+  white-space: pre-line;
+  font-family: SansSerif;
+  font-size: 1.4em;
+  text-align: justify;
+}
+
+.inputTitle {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.noOutline {
+  text-decoration: none;
+  background: transparent;
+  outline: none;
+  border: none;
+}
+
+textarea:focus, input:focus{
+  outline: none;
+  border: none;
+}

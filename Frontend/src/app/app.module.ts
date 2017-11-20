@@ -21,6 +21,7 @@ import {appRoutes} from './common/routes';
 import { PostComponent } from './main-content/post/post.component';
 import { LoginModalComponent } from './user/login-modal/login-modal.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { NewPostComponent } from './new-post/new-post.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     CategoryComponentComponent,
     PageNotFoundComponent,
     PostComponent,
-    LoginModalComponent
+    LoginModalComponent,
+    NewPostComponent
   ],
   imports: [
     BrowserModule,
