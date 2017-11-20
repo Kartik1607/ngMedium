@@ -1,95 +1,105 @@
+const mongoose = require('mongoose');
 let postSchema = require('../Models/post').schema;
 
 const PostModel = mongoose.model('Post', postSchema);
 
-function findPopular(limit, error, success) {
-    if(limit === 0) {
-        PostModel.find()
-            .sort({totalClaps: -1})
-            .exec((err, posts) => {
+module.exports = {
+    findPopular: function (limit, error, success)
+    {
+        if(limit === 0) {
+            PostModel.find()
+                .populate('User')
+                .sort({totalClaps: -1})
+                .exec((err, posts) => {
+                    if (err) {
+                        error()
+                    } else {
+                        success(posts)
+                    }
+                })
+        }else {
+            PostModel.find()
+                .populate('User')
+                .sort({totalClaps: -1})
+                .limit(limit)
+                .exec((err, posts) => {
+                    if (err) {
+                        error()
+                    } else {
+                        success(posts)
+                    }
+                })
+        }
+    },
+
+    findById: function (id, error, success) {
+        PostModel.findById(id)
+            .populate('User')
+            .exec((err, posts)=> {
                 if (err) {
-                    error()
+                    error(err)
                 } else {
                     success(posts)
                 }
             })
-    }else {
-        PostModel.find()
-            .sort({totalClaps: -1})
-            .limit(limit)
+    },
+
+    findByCategory: function findByCategory(category, limit, error, success) {
+
+        PostModel.findByCategory(category, limit, (err, posts) => {
+            if(err) {
+                error(err);
+            } else {
+                success(posts)
+            }
+        })
+    },
+
+    save: function (model, error, success) {
+        let post = new PostModel(model)
+        post.save((err, posts) => {
+            if (err) {
+                error(err)
+            } else {
+                success(posts)
+            }
+        })
+    },
+
+    updateById: function (id, model, error, success) {
+        PostModel.findByIdAndUpdate(id, model)
+            .populate('User')
             .exec((err, posts) => {
                 if (err) {
-                    error()
+                    error(err)
                 } else {
                     success(posts)
                 }
             })
+    },
+
+    findHomePosts: function (error, success) {
+        let result = {};
+        let found = 0;
+        this.findPopular(4, (err)=>{}, (posts)=>{
+            result['popular'] = posts;
+            ++found;
+            if(found === 4) { success(result) };
+        });
+        this.findByCategory('technology', 5, (err)=>{}, (posts)=>{
+            result['technology'] = posts;
+            ++found;
+            if(found === 4) { success(result) };
+        });
+        this.findByCategory('creativity', 5, (err)=>{}, (posts)=>{
+            result['creativity'] = posts;
+            ++found;
+            if(found === 4) { success(result) };
+        });
+        this.findByCategory('entrepreneurship', 5, (err)=>{}, (posts)=>{
+            result['entrepreneurship'] = posts;
+            ++found;
+            if(found === 4) { success(result) };
+        });
     }
-}
-
-function findById(id, error, success) {
-    PostModel.findById(id, (err, posts) => {
-        if (err) {
-            error(err)
-        } else {
-            success(posts)
-        }
-    })
-}
-
-function findByCategory(category, limit, error, success) {
-
-    PostModel.findByCategory(category, limit, (err, posts) => {
-        if(err) {
-            error(err);
-        } else {
-            success(posts)
-        }
-    })
-}
-
-function save(model, error, success) {
-    let post = new PostModel(model)
-    post.save((err, posts) => {
-        if (err) {
-            error(err)
-        } else {
-            success(posts)
-        }
-    })
-}
-
-function updateById(id, model, error, success) {
-    PostModel.findByIdAndUpdate(id, model, (err, posts) => {
-        if (err) {
-            error(err)
-        } else {
-            success(posts)
-        }
-    })
-}
-
-function findHomePosts(error, success) {
-    let result = {};
-    let found = 0;
-    this.findPopular(4, (err)=>{}, (posts)=>{
-        result['popular'] = posts;
-        ++found;
-        if(found === 4) { success(result) };
-    });
-    this.findByCategory('technology', 5, (err)=>{}, (posts)=>{
-        result['technology'] = posts;
-        ++found;
-        if(found === 4) { success(result) };
-    });
-    this.findByCategory('creativity', 5, (err)=>{}, (posts)=>{
-        result['creativity'] = posts;
-        ++found;
-        if(found === 4) { success(result) };
-    });
-    this.findByCategory('entrepreneurship', 5, (err)=>{}, (posts)=>{
-        result['entrepreneurship'] = posts;
-        ++found;
-        if(found === 4) { success(result) };
-    });
-}
+};
