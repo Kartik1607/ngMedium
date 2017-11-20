@@ -25,5 +25,19 @@
 .bottomContainer {
   position: absolute;
   bottom: 0;
-  font-size:0.8em;
+  font-size: 0.8em;
 }
+
+
+.card-title {
+  font-size: 1.4em;
+  line-height: 1.4em;
+  max-height: 4.2em;
+  overflow: hidden;
+}
+@media screen and (max-width: 500px) {
+  .card-title {
+    font-size: 1em;
+  }
+}
+

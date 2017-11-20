@@ -2,7 +2,7 @@
   <div class="container border border-right-0 border-left-0 border-top-0">
     <div class="row">
       <div class="col">
-      <!--TODO: Add Search bar -->
+        <!--TODO: Add Search bar -->
       </div>
       <div class="col text-center" style="font-family: SansSerif">
         <a routerLink="" class="logoTitle"><h1><strong>Medium</strong></h1></a>
@@ -11,18 +11,22 @@
         <button type="button" class="btn btn-outline-success align-self-center">New Post</button>
       </div>
     </div>
-</div>
+  </div>
 </div>
 
 <div *ngIf="!sticky" class="sticky-top border border-top-0 border-left-0 border-right-0 blur ">
   <div class="container">
-    <nav class="navbar navbar-expand-sm navbar-light">
-      <div class="navbar-nav">
-        <a class="nav-item nav-link" routerLinkActive="active" *ngFor="let item of links"
-          routerLink={{item.route}}>
-          {{item.name}}
-        </a>
-
+    <nav class="navbar navbar-expand-md navbar-light">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link" routerLinkActive="active" *ngFor="let item of links"
+             routerLink={{item.route}}>
+            {{item.name}}
+          </a>
+        </div>
       </div>
     </nav>
   </div>

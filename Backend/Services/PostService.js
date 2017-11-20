@@ -1,24 +1,4 @@
-const mongoose = require('mongoose');
-
-let postSchema = new mongoose.Schema({
-    title: String,
-    content: String,
-    category: String,
-    contentDetail: String,
-    author: String,
-    date: { type: Date, default: Date.now },
-    timeToRead: String,
-    totalClaps: Number,
-    image: String
-});
-
-postSchema.statics.findByCategory = function(category, lim, cb) {
-    if(lim === 0) {
-        return this.find({ category: category }, cb);
-    } else {
-        return this.find({category: category}, cb).limit(lim);
-    }
-};
+let postSchema = require('../Models/post').schema;
 
 const PostModel = mongoose.model('Post', postSchema);
 
@@ -113,12 +93,3 @@ function findHomePosts(error, success) {
         if(found === 4) { success(result) };
     });
 }
-
-module.exports = {
-    findPopular: findPopular,
-    save: save,
-    findById: findById,
-    updateById: updateById,
-    findByCategory: findByCategory,
-    findHomePosts: findHomePosts
-};
