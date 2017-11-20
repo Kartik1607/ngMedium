@@ -19,6 +19,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import {RouterModule} from '@angular/router';
 import {appRoutes} from './common/routes';
 import { PostComponent } from './main-content/post/post.component';
+import { LoginModalComponent } from './user/login-modal/login-modal.component';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -36,10 +38,12 @@ import { PostComponent } from './main-content/post/post.component';
     GroupFiveComponent,
     CategoryComponentComponent,
     PageNotFoundComponent,
-    PostComponent
+    PostComponent,
+    LoginModalComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],

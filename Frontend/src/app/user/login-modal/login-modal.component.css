@@ -1,0 +1,63 @@
+.myModal {
+  position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  height: 70%;
+}
+
+.modalGradient {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 10000;
+  background: rgba(255,255,255,0.9);
+}
+
+.myModalContainer {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  margin: auto;
+}
+
+
+@media screen and (max-width: 600px){
+  .myModal {
+    position: fixed;
+    min-width: 100vw;
+    min-height: 100vh;
+    transform: translate(0,0);
+    left: 0;
+    top: 0;
+  }
+
+  .myModalContainer {
+    margin:auto
+  }
+
+  .modalImg {
+    display: none;
+  }
+}
+
+
+.myMuteText {
+  width: 100%;
+  text-align: center;
+  font-size: 0.8em;
+  margin-top: 15px;
+}
+
+.modalImg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  max-width: 40%;
+  max-height: 60%;
+}
