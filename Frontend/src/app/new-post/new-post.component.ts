@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService} from "../Services/user.service";
+import {Router} from "@angular/router";
 
 declare const $:any;
 
@@ -18,8 +19,12 @@ export class NewPostComponent implements OnInit {
 
   userData: any;
   image;
+  showLoginForm: boolean = false;
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService, private router: Router) {
+    if(! this.userService.isUserLoggedIn()) {
+      this.showLoginForm = true;
+    }
     this.category = {
       technology: false, creativity: false, entrepreneurship: false
     };
@@ -42,5 +47,15 @@ export class NewPostComponent implements OnInit {
       this.image = e.target.result;
     };
     reader.readAsDataURL(event.target.files[0]);
+  }
+
+
+  checkLogin(event) {
+    if(!event) {
+      this.router.navigate(['/']);
+    } else {
+      this.userData = this.userService.getData();
+      this.showLoginForm = false;
+    }
   }
 }

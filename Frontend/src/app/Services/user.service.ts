@@ -66,4 +66,9 @@ export class UserService {
         password: password
       })
   }
+
+  public logout() {
+    localStorage.removeItem('UID');
+    this.data = {loginStatus: false};
+  }
 }

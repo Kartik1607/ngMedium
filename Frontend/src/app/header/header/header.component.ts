@@ -62,4 +62,9 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['/write']);
   }
 
+  logout() {
+    this.userService.logout();
+    this.userData = this.userService.getData();
+  }
+
 }

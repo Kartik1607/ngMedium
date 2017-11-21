@@ -12,3 +12,10 @@
 .logoTitle:hover {
   cursor: pointer;
 }
+
+@media screen and (max-width: 790px), (max-width: 396px)  {
+  .hideWhenMobile {
+    display: none;
+  }
+
+}

@@ -2,14 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7d843717-47c8-4166-b9f0-81127f2fbbb8" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Frontend/src/app/app.component.ts" afterPath="$PROJECT_DIR$/Frontend/src/app/app.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Frontend/src/app/main-content/post/post.component.css" afterPath="$PROJECT_DIR$/Frontend/src/app/main-content/post/post.component.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Frontend/src/app/main-content/post/post.component.html" afterPath="$PROJECT_DIR$/Frontend/src/app/main-content/post/post.component.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Frontend/src/app/Services/user.service.ts" afterPath="$PROJECT_DIR$/Frontend/src/app/Services/user.service.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Frontend/src/app/header/header/header.component.css" afterPath="$PROJECT_DIR$/Frontend/src/app/header/header/header.component.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Frontend/src/app/header/header/header.component.html" afterPath="$PROJECT_DIR$/Frontend/src/app/header/header/header.component.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Frontend/src/app/header/header/header.component.ts" afterPath="$PROJECT_DIR$/Frontend/src/app/header/header/header.component.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Frontend/src/app/new-post/new-post.component.html" afterPath="$PROJECT_DIR$/Frontend/src/app/new-post/new-post.component.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Frontend/src/app/new-post/new-post.component.ts" afterPath="$PROJECT_DIR$/Frontend/src/app/new-post/new-post.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Frontend/src/app/user/login-modal/login-modal.component.css" afterPath="$PROJECT_DIR$/Frontend/src/app/user/login-modal/login-modal.component.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Frontend/src/app/user/login-modal/login-modal.component.html" afterPath="$PROJECT_DIR$/Frontend/src/app/user/login-modal/login-modal.component.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Frontend/src/app/user/login-modal/login-modal.component.ts" afterPath="$PROJECT_DIR$/Frontend/src/app/user/login-modal/login-modal.component.ts" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/dist/" />
@@ -24,33 +22,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="home-component.component.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Frontend/src/app/main-content/home-component/home-component.component.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="524">
-              <caret line="206" column="3" lean-forward="true" selection-start-line="206" selection-start-column="3" selection-end-line="206" selection-end-column="3" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="post.component.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Frontend/src/app/main-content/post/post.component.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="8" column="26" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="26" />
-              <folding>
-                <element signature="e#977#983#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="new-post.component.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Frontend/src/app/new-post/new-post.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="4" column="25" lean-forward="false" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
+            <state relative-caret-position="27">
+              <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
@@ -62,10 +38,47 @@
       <file leaf-file-name="new-post.component.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Frontend/src/app/new-post/new-post.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="254">
-              <caret line="18" column="16" lean-forward="false" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+            <state relative-caret-position="1539">
+              <caret line="57" column="33" lean-forward="false" selection-start-line="57" selection-start-column="33" selection-end-line="57" selection-end-column="33" />
               <folding>
                 <element signature="e#0#50#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="header.component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Frontend/src/app/header/header/header.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="189">
+              <caret line="7" column="33" lean-forward="false" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
+              <folding>
+                <element signature="n#style#0;n#app-login-modal#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="header.component.ts" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Frontend/src/app/header/header/header.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="425">
+              <caret line="66" column="47" lean-forward="false" selection-start-line="66" selection-start-column="47" selection-end-line="66" selection-end-column="47" />
+              <folding>
+                <element signature="e#0#55#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="user.service.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Frontend/src/app/Services/user.service.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1334">
+              <caret line="70" column="35" lean-forward="true" selection-start-line="70" selection-start-column="35" selection-end-line="70" selection-end-column="35" />
+              <folding>
+                <element signature="e#0#55#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -74,13 +87,23 @@
       <file leaf-file-name="login-modal.component.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Frontend/src/app/user/login-modal/login-modal.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="32" column="44" lean-forward="false" selection-start-line="32" selection-start-column="44" selection-end-line="32" selection-end-column="44" />
+            <state relative-caret-position="135">
+              <caret line="31" column="10" lean-forward="true" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
               <folding>
                 <element signature="n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
                 <element signature="n#style#0;n#h3#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="header.component.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Frontend/src/app/header/header/header.component.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="506">
+              <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -95,10 +118,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login-modal.component.ts" pinned="false" current-in-tab="true">
+      <file leaf-file-name="login-modal.component.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Frontend/src/app/user/login-modal/login-modal.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="794">
+            <state relative-caret-position="2349">
               <caret line="89" column="23" lean-forward="true" selection-start-line="89" selection-start-column="23" selection-end-line="89" selection-end-column="23" />
               <folding />
             </state>
@@ -111,28 +134,6 @@
             <state relative-caret-position="513">
               <caret line="19" column="16" lean-forward="false" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.component.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Frontend/src/app/app.component.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="16" column="44" lean-forward="false" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="user.service.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Frontend/src/app/Services/user.service.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="702">
-              <caret line="26" column="34" lean-forward="true" selection-start-line="26" selection-start-column="34" selection-end-line="26" selection-end-column="34" />
-              <folding>
-                <element signature="e#0#55#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -181,7 +182,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/app/main-content/head/head.component.ts" />
         <option value="$PROJECT_DIR$/src/app/main-content/category-component/category-component.component.html" />
         <option value="$PROJECT_DIR$/src/app/main-content/main-content.component.html" />
         <option value="$PROJECT_DIR$/src/app/page-not-found/page-not-found.component.css" />
@@ -218,20 +218,21 @@
         <option value="$PROJECT_DIR$/Frontend/src/app/app.module.ts" />
         <option value="$PROJECT_DIR$/Backend/index.js" />
         <option value="$PROJECT_DIR$/Backend/RestControllers/UserController.js" />
-        <option value="$PROJECT_DIR$/Frontend/src/app/header/header/header.component.html" />
-        <option value="$PROJECT_DIR$/Frontend/src/app/header/header/header.component.ts" />
         <option value="$PROJECT_DIR$/Frontend/src/app/main-content/home-component/home-component.component.html" />
         <option value="$PROJECT_DIR$/Frontend/src/app/main-content/home-component/home-component.component.ts" />
         <option value="$PROJECT_DIR$/Frontend/src/app/new-post/new-post.component.css" />
-        <option value="$PROJECT_DIR$/Frontend/src/app/Services/user.service.ts" />
         <option value="$PROJECT_DIR$/Frontend/src/app/main-content/post/post.component.css" />
         <option value="$PROJECT_DIR$/Frontend/src/app/app.component.ts" />
         <option value="$PROJECT_DIR$/Frontend/src/app/main-content/post/post.component.html" />
-        <option value="$PROJECT_DIR$/Frontend/src/app/new-post/new-post.component.html" />
-        <option value="$PROJECT_DIR$/Frontend/src/app/new-post/new-post.component.ts" />
         <option value="$PROJECT_DIR$/Frontend/src/app/user/login-modal/login-modal.component.css" />
         <option value="$PROJECT_DIR$/Frontend/src/app/user/login-modal/login-modal.component.html" />
         <option value="$PROJECT_DIR$/Frontend/src/app/user/login-modal/login-modal.component.ts" />
+        <option value="$PROJECT_DIR$/Frontend/src/app/new-post/new-post.component.html" />
+        <option value="$PROJECT_DIR$/Frontend/src/app/new-post/new-post.component.ts" />
+        <option value="$PROJECT_DIR$/Frontend/src/app/Services/user.service.ts" />
+        <option value="$PROJECT_DIR$/Frontend/src/app/header/header/header.component.css" />
+        <option value="$PROJECT_DIR$/Frontend/src/app/header/header/header.component.html" />
+        <option value="$PROJECT_DIR$/Frontend/src/app/header/header/header.component.ts" />
       </list>
     </option>
   </component>
@@ -455,12 +456,12 @@
       <workItem from="1510545101071" duration="131000" />
       <workItem from="1510645006923" duration="5000" />
       <workItem from="1511148855110" duration="20068000" />
-      <workItem from="1511234710473" duration="17353000" />
+      <workItem from="1511234710473" duration="18784000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="92148000" />
+    <option name="totallyTimeSpent" value="93579000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -473,7 +474,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1986755" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1986755" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -625,14 +626,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Frontend/src/app/header/header/header.component.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="7" column="14" lean-forward="false" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Frontend/src/app/common/routes.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="243">
@@ -709,16 +702,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Frontend/src/app/header/header/header.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7">
-          <caret line="17" column="6" lean-forward="true" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
-          <folding>
-            <element signature="n#style#0;n#app-login-modal#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Frontend/src/app/main-content/home-component/home-component.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
@@ -743,31 +726,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Frontend/src/app/header/header/header.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="50" column="47" lean-forward="false" selection-start-line="50" selection-start-column="47" selection-end-line="50" selection-end-column="47" />
-          <folding>
-            <element signature="e#0#55#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Frontend/src/app/main-content/home-component/home-component.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="524">
           <caret line="206" column="3" lean-forward="true" selection-start-line="206" selection-start-column="3" selection-end-line="206" selection-end-column="3" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Frontend/src/app/Services/user.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="702">
-          <caret line="26" column="34" lean-forward="true" selection-start-line="26" selection-start-column="34" selection-end-line="26" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#55#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -797,27 +760,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Frontend/src/app/new-post/new-post.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="4" column="25" lean-forward="false" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Frontend/src/app/new-post/new-post.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="18" column="16" lean-forward="false" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Frontend/src/app/user/login-modal/login-modal.component.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="794">
@@ -826,10 +768,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Frontend/src/app/user/login-modal/login-modal.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2349">
+          <caret line="89" column="23" lean-forward="true" selection-start-line="89" selection-start-column="23" selection-end-line="89" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Frontend/src/app/new-post/new-post.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Frontend/src/app/user/login-modal/login-modal.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="32" column="44" lean-forward="false" selection-start-line="32" selection-start-column="44" selection-end-line="32" selection-end-column="44" />
+        <state relative-caret-position="135">
+          <caret line="31" column="10" lean-forward="true" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
           <folding>
             <element signature="n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
             <element signature="n#style#0;n#h3#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -838,11 +799,52 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Frontend/src/app/user/login-modal/login-modal.component.ts">
+    <entry file="file://$PROJECT_DIR$/Frontend/src/app/header/header/header.component.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="794">
-          <caret line="89" column="23" lean-forward="true" selection-start-line="89" selection-start-column="23" selection-end-line="89" selection-end-column="23" />
+        <state relative-caret-position="506">
+          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Frontend/src/app/header/header/header.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="7" column="33" lean-forward="false" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
+          <folding>
+            <element signature="n#style#0;n#app-login-modal#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Frontend/src/app/new-post/new-post.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1539">
+          <caret line="57" column="33" lean-forward="false" selection-start-line="57" selection-start-column="33" selection-end-line="57" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Frontend/src/app/Services/user.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1334">
+          <caret line="70" column="35" lean-forward="true" selection-start-line="70" selection-start-column="35" selection-end-line="70" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#55#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Frontend/src/app/header/header/header.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="66" column="47" lean-forward="false" selection-start-line="66" selection-start-column="47" selection-end-line="66" selection-end-column="47" />
+          <folding>
+            <element signature="e#0#55#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
