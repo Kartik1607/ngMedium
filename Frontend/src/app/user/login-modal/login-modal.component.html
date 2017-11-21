@@ -26,9 +26,12 @@
                   : performLogin(inputName.value, inputPassword.value)">{{formAction}}</button>
         </div>
         <div class="text-muted myMuteText">
-          {{modalHelperText}}<span style="color: green;"class="mx-1"(click)="switchLogin()" >{{modalHelperAction}}</span>
+          {{modalHelperText}}<span style="color: green; cursor:pointer;"class="mx-1"(click)="switchLogin()" >{{modalHelperAction}}</span>
         </div>
       </div>
+    </div>
+    <div class="myError" *ngIf="errorMessage">
+      {{errorMessage}}
     </div>
   </div>
 </div>

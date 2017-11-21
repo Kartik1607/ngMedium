@@ -14,6 +14,6 @@ export class AppComponent {
 
   componentAdded(event) {
     console.log(event);
-    this.isHeaderSticky = !event.needSticky;
+    this.isHeaderSticky = event.needSticky();
   }
 }

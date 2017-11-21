@@ -61,3 +61,11 @@
   max-width: 40%;
   max-height: 60%;
 }
+
+.myError {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: yellow;
+  text-align: center;
+}

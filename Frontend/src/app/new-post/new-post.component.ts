@@ -17,7 +17,6 @@ export class NewPostComponent implements OnInit {
   };
 
   userData: any;
-
   image;
 
   constructor(private userService: UserService) {

@@ -16,6 +16,7 @@ export class LoginModalComponent implements OnInit {
   formAction: string;
   modalHelperText: string;
   modalHelperAction: string;
+  errorMessage;
 
   @Output() onClose: EventEmitter<string> = new EventEmitter();
 
@@ -28,6 +29,7 @@ export class LoginModalComponent implements OnInit {
   }
 
   private setValues() {
+    this.errorMessage = null;
     if(! this.isSignUpPage) {
       this.modalImage = 'https://cdn-images-1.medium.com/proxy/1*lQWWgHf-jUvQVEyAKQLIkw@2x.png';
       this.modalHeading = 'Welcome Back.';
@@ -50,25 +52,46 @@ export class LoginModalComponent implements OnInit {
   }
 
   performLogin(name, password) {
+    this.errorMessage = null;
+    if(name.length < 6) {
+      this.errorMessage = "User name must be at least 6 characters."
+    }
+    if(password.length < 6) {
+      this.errorMessage += "\nPassword must be at least 6 characters."
+    }
+    if(this.errorMessage) {
+      return;
+    }
     this.userService.loginUser(name, password).subscribe(data => {
       console.log(data);
       if(data['_id']) {
         this.userService.setLoggedInStatus(true, data['_id']);
         this.onClose.emit(data['_id']);
       } else {
-        //TODO: Show error
+        this.errorMessage = "Invalid username or password."
       }
     });
   }
 
   performSignUp(fullname, name, password) {
+    this.errorMessage = null;
+    if(fullname.length == 0) {
+      this.errorMessage = "Full name cannot be empty."
+    }
+    if(name.length < 6) {
+      this.errorMessage += "\nUser name must be at least 6 characters."
+    }
+    if(password.length < 6) {
+      this.errorMessage += "\nPassword must be at least 6 characters."
+    }
+    if(this.errorMessage) return;
     this.userService.registerUser(fullname, name, password).subscribe(data => {
       console.log(data);
       if(data['_id']) {
         this.userService.setLoggedInStatus(true, data['_id']);
         this.onClose.emit(data['_id']);
       } else {
-        //TODO: Show error
+        this.errorMessage = "Invalid details."
       }
     });
   }

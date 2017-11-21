@@ -8,13 +8,12 @@
       <app-author-bar authorName={{userData.userName}} timeToRead="4 min" publishDate="4 Nov"></app-author-bar>
     </div>
   </div>
-
   <img *ngIf="image" src={{image}} class="main-img"/>
   <div class="width60 my-4">
     <button type="button" class="btn btn-outline-dark" (click)="showFileSelector()">Add Image</button>
     <input type="file" id="file_upload_input" (change)="onImageChange($event)" hidden/>
     <div class="post-content noOutline my-5" style="height: auto;" contenteditable="true"
-    placeholder="Tell your story..."></div>
+    placeholder="Tell your story..." ></div>
     <div class="my-4">
       <div class="mb-3"><h4>Category</h4></div>
       <button class="btn categoryButton my-2"
