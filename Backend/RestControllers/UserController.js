@@ -68,4 +68,24 @@ module.exports = function(app) {
                 res.send(user);
             })
     });
+
+    app.post('/login', (req, res) => {
+        const userName = req.body.userName;
+        const password = req.body.password;
+        if(!userName || !password) {
+            res.send({});
+        }
+        Users.findByUserName(userName, (err)=>{
+            colors.red(err);
+            res.send(err);
+        }, (user) => {
+            if(!user[0]) return res.send({});
+            if(user[0].password === password) {
+                res.send(user[0]);
+            } else {
+                res.send({});
+            }
+        });
+    });
+
 };

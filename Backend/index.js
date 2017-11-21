@@ -5,6 +5,7 @@ const constants = require('./constants');
 const colors = require('colors/safe');
 const bodyParser = require('body-parser');
 const imageService = require('./imageService');
+const cors = require('cors');
 imageService(app);
 
 mongoose.connect(constants.mongoURL);
@@ -14,6 +15,7 @@ db.once('open', () => {
     console.log(colors.green('Connceted to MongoDB. YAY'))
 });
 
+app.use(cors());
 app.use(bodyParser.json());
 app.listen(constants.PORT, () => {
     console.log(colors.green('Node started'))

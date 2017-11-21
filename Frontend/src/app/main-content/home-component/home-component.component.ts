@@ -1,18 +1,37 @@
 import { Component, OnInit } from '@angular/core';
 import {DataModel} from '../../common/data';
 import {ISticky} from "../../common/ISticky";
+import {animate, style, transition, trigger} from "@angular/animations";
+import {UserService} from "../../Services/user.service";
+import {Router} from "@angular/router";
 @Component({
   selector: 'app-home-component',
   templateUrl: './home-component.component.html',
-  styleUrls: ['./home-component.component.css']
+  styleUrls: ['./home-component.component.css'],
+  animations: [
+    trigger(
+      'enterAnimation', [
+        transition(':enter', [
+          style({opacity: 0}),
+          animate('100ms', style({opacity: 1}))
+        ]),
+        transition(':leave', [
+          style({opacity: 1}),
+          animate('100ms', style({opacity: 0}))
+        ])
+      ]
+    )
+  ],
 })
 export class HomeComponentComponent implements OnInit, ISticky {
   popularData: DataModel[];
   technologyData: DataModel[];
   creativeData: DataModel[];
   entreData: DataModel[];
+  userData: object;
+  showLoginForm = false;
 
-  constructor() {
+  constructor(private userService: UserService, private  router: Router) {
     this.popularData = [
       {
       title: `To Grow Talent, Don’t Move Fast and Break Things — Move Slow and Build Them`,
@@ -176,9 +195,18 @@ export class HomeComponentComponent implements OnInit, ISticky {
   }
 
   ngOnInit() {
+    this.userData = this.userService.getData();
   }
 
   needSticky() {
     return false;
+  }
+
+  showLogin() {
+    this.showLoginForm = !this.showLoginForm;
+  }
+
+  newPost() {
+    this.router.navigate(['/write']);
   }
 }

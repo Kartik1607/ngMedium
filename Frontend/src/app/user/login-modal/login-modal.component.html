@@ -2,7 +2,7 @@
   <div class="myModal" [ngStyle]="{'background-color': (isSignUpPage ? '#E8F3EC': '#D7EFEE')}">
     <img src={{modalImage}} class="modalImg"/>
     <i class="fa fa-times pull-right m-3" aria-hidden="true"
-    (click)="onClose.emit(true)"></i>
+    (click)="onClose.emit(null)"></i>
     <div>
       <div class="myModalContainer my-auto">
         <h3 style="font-family: SansSerif" class="text-center"><strong>{{modalHeading}}</strong></h3>
@@ -10,6 +10,10 @@
           {{modalSubHeading}}
         </div>
         <div class="my-5">
+          <div class="form-group" [ngStyle]="{'visibility': isSignUpPage? 'visible': 'hidden'}">
+            <input #inputFullName type="text" class="form-control" aria-describedby="FullnameHelp"
+                   placeholder="Enter Full Name" minlength="6" required>
+          </div>
           <div class="form-group">
             <input #inputName type="text" class="form-control" aria-describedby="UsernameHelp"
                    placeholder="Enter User name" minlength="6" required>
@@ -18,7 +22,7 @@
             <input #inputPassword type="password" class="form-control"  placeholder="Password" minlength="6" required>
           </div>
           <button class="btn btn-primary mx-auto"
-                  (click)="isSignUpPage? performSignUp(inputName.value, inputPassword.value)
+                  (click)="isSignUpPage? performSignUp(inputFullName.value, inputName.value, inputPassword.value)
                   : performLogin(inputName.value, inputPassword.value)">{{formAction}}</button>
         </div>
         <div class="text-muted myMuteText">

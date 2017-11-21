@@ -1,5 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {animate, style, transition, trigger} from "@angular/animations";
+import {UserService} from "../../Services/user.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-header',
@@ -22,12 +24,11 @@ import {animate, style, transition, trigger} from "@angular/animations";
 })
 export class HeaderComponent implements OnInit {
   @Input('sticky') sticky: boolean;
-  isLoggedId: boolean = false;
   links: [{name: string, route: string}];
   showLoginForm: boolean;
-  constructor() {
+  userData: object;
+  constructor(private userService: UserService, private router: Router) {
     this.showLoginForm = false;
-    this.isLoggedId = false;
     this.links = [{
       name: 'Home',
       route: ''
@@ -47,15 +48,18 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    this.userData = this.userService.getData();
   }
 
-  toggleLoginForm() {
+  toggleLoginForm(status) {
+    if(status) {
+      this.userService.setLoggedInStatus(true, status);
+    }
     this.showLoginForm = !this.showLoginForm;
   }
 
   newPost(){
-
+    this.router.navigate(['/write']);
   }
 
 }

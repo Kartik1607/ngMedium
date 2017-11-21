@@ -1,15 +1,35 @@
 <div class="container">
   <div class="my-5 width60">
     <div>
-      <div class="noOutline my-5 inputTitle" style="height: auto;" contenteditable="true">Title goes here</div>
+      <div class="noOutline my-5 inputTitle" style="height: auto;" contenteditable="true"
+      placeholder="Title"></div>
     </div>
     <div class="my-4">
       <app-author-bar authorName="Dan Sapio" timeToRead="4 min" publishDate="4 Nov"></app-author-bar>
     </div>
   </div>
-  <img src="assets/images/placeholder.png" class="main-img"/>
-  <div class="width60">
-    <div class="post-content noOutline my-5" style="height: auto;" contenteditable="true">Type your awesome thoughts here.</div>
+
+  <img *ngIf="image" src={{image}} class="main-img"/>
+  <div class="width60 my-4">
+    <button type="button" class="btn btn-outline-dark" (click)="showFileSelector()">Add Image</button>
+    <input type="file" id="file_upload_input" (change)="onImageChange($event)" hidden/>
+    <div class="post-content noOutline my-5" style="height: auto;" contenteditable="true"
+    placeholder="Tell your story..."></div>
+    <div class="my-4">
+      <div class="mb-3"><h4>Category</h4></div>
+      <button class="btn categoryButton my-2"
+              [ngStyle]="{'background': category.technology? 'cornflowerblue' : 'transparent'}"
+              (click)="category.technology = !category.technology"
+      >Technology</button>
+      <button class="btn categoryButton my-2"
+              [ngStyle]="{'background': category.creativity? 'cornflowerblue' : 'transparent'}"
+              (click)="category.creativity = !category.creativity"
+      >Creativity</button>
+      <button class="btn categoryButton my-2"
+              [ngStyle]="{'background': category.entrepreneurship? 'cornflowerblue' : 'transparent'}"
+              (click)="category.entrepreneurship = !category.entrepreneurship"
+      >Entrepreneurship</button>
+    </div>
     <button type="button" class="btn btn-outline-success align-self-center" (click)="savePost()">Publish</button>
   </div>
 

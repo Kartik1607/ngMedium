@@ -1,4 +1,4 @@
-<app-login-modal *ngIf="showLoginForm" [@enterAnimation] (onClose)="toggleLoginForm()" style="z-index: 10000;"></app-login-modal>
+<app-login-modal *ngIf="showLoginForm" [@enterAnimation] (onClose)="toggleLoginForm($event)" style="z-index: 10000;"></app-login-modal>
 
 <div class="blur" [class.sticky-top]="sticky">
   <div class="container border border-right-0 border-left-0 border-top-0">
@@ -10,8 +10,8 @@
         <a routerLink="" class="logoTitle"><h1><strong>Medium</strong></h1></a>
       </div>
       <div class="col d-flex justify-content-end">
-        <button *ngIf="isLoggedId" type="button" class="btn btn-outline-success align-self-center" (click)="newPost()">New Post</button>
-        <button *ngIf="!isLoggedId" type="button" class="btn btn-outline-success align-self-center" (click)="toggleLoginForm()">Get Started</button>
+        <button *ngIf="userData.loginStatus" type="button" class="btn btn-outline-success align-self-center" (click)="newPost()">New Post</button>
+        <button *ngIf="!userData.loginStatus" type="button" class="btn btn-outline-success align-self-center" (click)="toggleLoginForm()">Get Started</button>
       </div>
     </div>
   </div>

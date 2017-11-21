@@ -22,6 +22,10 @@ import { PostComponent } from './main-content/post/post.component';
 import { LoginModalComponent } from './user/login-modal/login-modal.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { NewPostComponent } from './new-post/new-post.component';
+import {FormsModule} from "@angular/forms";
+import {UserService} from "./Services/user.service";
+import {HttpModule} from "@angular/http";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -46,9 +50,11 @@ import { NewPostComponent } from './new-post/new-post.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    FormsModule,
+    HttpClientModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

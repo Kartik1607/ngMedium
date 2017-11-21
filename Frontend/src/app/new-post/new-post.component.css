@@ -1,12 +1,11 @@
+.categoryButton {
+  border-radius: 10px;
+  border: 2px solid cornflowerblue;
+}
+
 .width60 {
   width:60%;
   margin: auto;
-}
-
-@media (max-width: 769px) {
-  .width60 {
-    width:100%;
-  }
 }
 
 .main-img {
@@ -36,4 +35,18 @@
 textarea:focus, input:focus{
   outline: none;
   border: none;
+}
+
+[contenteditable=true]:empty:before {
+  content: attr(placeholder);
+  color: #666666;
+  display: block; /* For Firefox */
+}
+
+@media (max-width: 769px) {
+  .width60 {
+    width: 100%;
+  }
+
+
 }

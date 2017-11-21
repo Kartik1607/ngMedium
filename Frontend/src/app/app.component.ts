@@ -13,6 +13,7 @@ export class AppComponent {
   }
 
   componentAdded(event) {
-    this.isHeaderSticky = event.needSticky();
+    console.log(event);
+    this.isHeaderSticky = !event.needSticky;
   }
 }

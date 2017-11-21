@@ -1,3 +1,5 @@
+<app-login-modal *ngIf="showLoginForm" [@enterAnimation] (onClose)="showLogin()" style="z-index: 10000;"></app-login-modal>
+
 <div class="container">
   <app-subhead title="Popular on Medium"></app-subhead>
   <app-group-four [data]="popularData"></app-group-four>
@@ -11,7 +13,7 @@
         Hear directly from the people who know it best. From tech to politics to creativity and more — whatever your interest, we’ve got you covered
       </div>
       <div class="mt-5">
-        <button type="button" class="btn btn-dark">Get Started</button>
+        <button type="button" class="btn btn-dark" (click)="userData.loginStatus ? newPost() : showLogin()">Get Started</button>
         <button type="button" class="btn btn-outline-secondary">Learn More</button>
       </div>
     </div>

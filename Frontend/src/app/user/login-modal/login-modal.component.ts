@@ -1,5 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {animate, state, style, transition, trigger} from "@angular/animations";
+import {UserService} from "../../Services/user.service";
 
 @Component({
   selector: 'app-login-modal',
@@ -16,10 +17,10 @@ export class LoginModalComponent implements OnInit {
   modalHelperText: string;
   modalHelperAction: string;
 
-  @Output() onClose: EventEmitter<boolean> = new EventEmitter();
+  @Output() onClose: EventEmitter<string> = new EventEmitter();
 
-  constructor() {
-    this.isSignUpPage = false;
+  constructor(private userService: UserService) {
+    this.isSignUpPage = true;
     this.setValues();
   }
 
@@ -27,7 +28,7 @@ export class LoginModalComponent implements OnInit {
   }
 
   private setValues() {
-    if(this.isSignUpPage) {
+    if(! this.isSignUpPage) {
       this.modalImage = 'https://cdn-images-1.medium.com/proxy/1*lQWWgHf-jUvQVEyAKQLIkw@2x.png';
       this.modalHeading = 'Welcome Back.';
       this.modalSubHeading = 'Sign in to access your personalized homepage, follow authors and topics you love, and clap for stories that matter to you.';
@@ -49,10 +50,26 @@ export class LoginModalComponent implements OnInit {
   }
 
   performLogin(name, password) {
-
+    this.userService.loginUser(name, password).subscribe(data => {
+      console.log(data);
+      if(data['_id']) {
+        this.userService.setLoggedInStatus(true, data['_id']);
+        this.onClose.emit(data['_id']);
+      } else {
+        //TODO: Show error
+      }
+    });
   }
 
-  performSignUp(name, password) {
-
+  performSignUp(fullname, name, password) {
+    this.userService.registerUser(fullname, name, password).subscribe(data => {
+      console.log(data);
+      if(data['_id']) {
+        this.userService.setLoggedInStatus(true, data['_id']);
+        this.onClose.emit(data['_id']);
+      } else {
+        //TODO: Show error
+      }
+    });
   }
 }
