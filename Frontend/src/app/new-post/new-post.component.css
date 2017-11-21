@@ -45,6 +45,10 @@ button {
   cursor: pointer;
 }
 
+button:focus, button:active{
+  outline: none;
+  box-shadow: none;
+}
 [contenteditable=true]:empty:before {
   content: attr(placeholder);
   color: #666666;

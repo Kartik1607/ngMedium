@@ -1,8 +1,9 @@
-import {EventEmitter, Injectable} from '@angular/core';
+import {EventEmitter, Injectable, OnDestroy} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 
 @Injectable()
-export class UserService {
+export class UserService{
+
 
   private API_URL = 'http://localhost:3000';
   private data:{
@@ -26,8 +27,10 @@ export class UserService {
     if ( uid ) {
       this.data.loginStatus = true;
       this.updateData(uid);
+      return true;
     } else {
       this.data.loginStatus = false;
+      return false;
     }
   }
 
