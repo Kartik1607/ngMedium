@@ -37,6 +37,14 @@ textarea:focus, input:focus{
   border: none;
 }
 
+[contenteditable=true] {
+  cursor: text;
+}
+
+button {
+  cursor: pointer;
+}
+
 [contenteditable=true]:empty:before {
   content: attr(placeholder);
   color: #666666;

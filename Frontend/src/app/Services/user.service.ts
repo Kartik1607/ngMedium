@@ -6,7 +6,9 @@ export class UserService {
 
   private API_URL = 'http://localhost:3000';
   private data:{
-    loginStatus: boolean
+    loginStatus: boolean,
+    userId?: string,
+    userName?: string
   };
   constructor(private http: HttpClient) {
     this.data = {
@@ -23,15 +25,28 @@ export class UserService {
     const uid = localStorage.getItem('UID');
     if ( uid ) {
       this.data.loginStatus = true;
+      this.updateData(uid);
     } else {
       this.data.loginStatus = false;
     }
+  }
+
+  private updateData(uid) {
+    this.getUserById(uid).subscribe((data)=>{
+      this.data.userId = uid;
+      this.data.userName = data['name'];
+    });
+  }
+
+  public getUserById(uid) {
+    return this.http.get(`${this.API_URL}/users/${uid}`);
   }
 
   public setLoggedInStatus(status: boolean, uid?) {
     if (status ) {
       localStorage.setItem('UID', uid);
       this.data.loginStatus = true;
+      this.updateData(uid);
     } else {
       localStorage.removeItem('UID');
       this.data.loginStatus = false;

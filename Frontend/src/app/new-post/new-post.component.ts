@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {UserService} from "../Services/user.service";
 
 declare const $:any;
 
@@ -15,15 +16,18 @@ export class NewPostComponent implements OnInit {
     entrepreneurship: boolean;
   };
 
+  userData: any;
+
   image;
 
-  constructor() {
+  constructor(private userService: UserService) {
     this.category = {
       technology: false, creativity: false, entrepreneurship: false
     };
   }
 
   ngOnInit() {
+    this.userData = this.userService.getData();
   }
 
   showFileSelector() {
