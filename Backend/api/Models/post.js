@@ -4,9 +4,8 @@ const Schema = mongoose.Schema;
 let postSchema = new mongoose.Schema({
     _id: Schema.Types.ObjectId,
     title: String,
-    content: String,
     category: String,
-    contentDetail: String,
+    content: String,
     date: { type: Date, default: Date.now },
     timeToRead: String,
     totalClaps: Number,

@@ -3,6 +3,7 @@ import {UserService} from "../../Services/user.service";
 import {Router} from "@angular/router";
 import {AuthServiceService} from "../../Services/auth-service.service";
 import {ISticky} from "../../common/ISticky";
+import {PostService} from "../../Services/post.service";
 
 declare const $:any;
 
@@ -23,7 +24,10 @@ export class NewPostComponent implements ISticky, OnInit, OnDestroy {
 
   constructor(private authService: AuthServiceService,
               private userService: UserService,
+              private postService: PostService,
               private router: Router) {
+    this.category = 0;
+    this.userData = {};
     if(sessionStorage.getItem('UID')){
       this.userData = {};
       this.toggleForm(true);
@@ -31,8 +35,6 @@ export class NewPostComponent implements ISticky, OnInit, OnDestroy {
       this.showLoginForm = false;
       this.watchContent(true);
     }else {
-      this.category = 0;
-      this.userData = {};
       this.showLoginForm = true;
     }
   }
@@ -113,6 +115,22 @@ export class NewPostComponent implements ISticky, OnInit, OnDestroy {
   }
 
   savePost(title, content) {
+    const file = $('#file_upload_input').prop('files')[0]
+    if (!file) {
+      return;
+    } else {
+      let category = '';
+      switch(this.category) {
+        case 0: category = 'technology'; break;
+        case 1: category = 'creativity'; break;
+        case 2: category = 'entrepreneurship'; break;
+      }
+      this.postService.savePost(this.userData._id, title, content, category, file)
+        .then(data => {
+          console.log(data);
+          this.router.navigate([`/posts/${data['_id']}`]);
+        });
+    }
   }
 
   needSticky() {

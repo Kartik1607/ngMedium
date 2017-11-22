@@ -25,7 +25,7 @@ module.exports = function(app) {
 
     app.post('/posts', (req, res) => {
         let post = req.body;
-        post.timeToRead = constants.getTimeToRead(post.contentDetail);
+        post.timeToRead = constants.getTimeToRead(post.content);
         Posts.save(post, (err) => {
             console.log(colors.red(err));
             res.send(err);
