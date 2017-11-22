@@ -3,7 +3,7 @@
 <div class="container">
   <div class="my-5 width60">
     <div>
-      <div id="postTitle" class="noOutline my-5 inputTitle" style="height: auto;" contenteditable="true"
+      <div #postTitle id="postTitle" class="noOutline my-5 inputTitle" style="height: auto;" contenteditable="true"
       placeholder="Title"></div>
     </div>
     <div class="my-4">
@@ -14,7 +14,7 @@
   <div class="width60 my-4">
     <button type="button" class="btn btn-outline-dark" (click)="showFileSelector()">Add Image</button>
     <input type="file" id="file_upload_input" (change)="onImageChange($event)" hidden/>
-    <div id="postContent" class="post-content noOutline my-5" style="height: auto;" contenteditable="true"
+    <div #postContent id="postContent" class="post-content noOutline my-5" style="height: auto;" contenteditable="true"
     placeholder="Tell your story..." ></div>
     <div class="my-4">
       <div class="mb-3"><h4>Category</h4></div>
@@ -31,7 +31,8 @@
               (click)="category = 2"
       >Entrepreneurship</button>
     </div>
-    <button type="button" class="btn btn-outline-success align-self-center" (click)="savePost()">Publish</button>
+    <button
+      *ngIf="postTitle.innerText.length > 0 && postContent.innerText.length > 0"
+      type="button" class="btn btn-outline-success align-self-center" (click)="savePost(postTitle.innerText, postContent.innerText)">Publish</button>
   </div>
-
 </div>

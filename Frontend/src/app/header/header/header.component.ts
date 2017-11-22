@@ -26,7 +26,7 @@ export class HeaderComponent implements OnInit {
   @Input('sticky') sticky: boolean;
   links: [{name: string, route: string}];
   showLoginForm: boolean;
-  userData: object;
+  userData: any;
   constructor(private userService: UserService, private router: Router) {
     this.showLoginForm = false;
     this.links = [{

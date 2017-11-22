@@ -13,5 +13,5 @@ const upload = multer({ storage: storage })
 module.exports = function (app) {
   app.post('/upload', upload.single('avatar'), function (req, res) {
     res.send(req.file)
-  })
+  });
 };

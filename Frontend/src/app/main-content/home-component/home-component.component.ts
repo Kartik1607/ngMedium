@@ -28,7 +28,7 @@ export class HomeComponentComponent implements OnInit, ISticky {
   technologyData: DataModel[];
   creativeData: DataModel[];
   entreData: DataModel[];
-  userData: object;
+  userData: any;
   showLoginForm = false;
 
   constructor(private userService: UserService, private  router: Router) {

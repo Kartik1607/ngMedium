@@ -4,9 +4,9 @@ const mongoose = require('mongoose');
 const constants = require('./constants');
 const colors = require('colors/safe');
 const bodyParser = require('body-parser');
-const imageService = require('./imageService');
+const path = require('path');
 const cors = require('cors');
-imageService(app);
+const api = require('./api/apiRoute');
 
 mongoose.connect(constants.mongoURL);
 const db = mongoose.connection;
@@ -17,9 +17,13 @@ db.once('open', () => {
 
 app.use(cors());
 app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname, 'dist')));
+app.use('/api', require('./api/apiRoute'));
+
+app.get('*',(req,res)=>{
+    res.sendFile(path.join(__dirname, 'dist/index.html'));
+});
+
 app.listen(constants.PORT, () => {
     console.log(colors.green('Node started'))
 });
-
-const postController = require('./RestControllers/PostController')(app);
-const userController = require('./RestControllers/UserController')(app);

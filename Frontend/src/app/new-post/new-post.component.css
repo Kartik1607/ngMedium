@@ -52,7 +52,7 @@ button:focus, button:active{
 [contenteditable=true]:empty:before {
   content: attr(placeholder);
   color: #666666;
-  display: block; /* For Firefox */
+  display: block;
 }
 
 @media (max-width: 769px) {

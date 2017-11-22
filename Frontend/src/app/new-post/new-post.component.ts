@@ -73,4 +73,7 @@ export class NewPostComponent implements OnInit, OnDestroy {
       this.watchContent(true);
     }
   }
+
+  savePost(title, content) {
+  }
 }
