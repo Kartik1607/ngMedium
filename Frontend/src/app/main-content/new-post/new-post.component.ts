@@ -1,5 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {UserService} from "../Services/user.service";
+import {UserService} from "../../Services/user.service";
 import {Router} from "@angular/router";
 
 declare const $:any;
@@ -20,14 +20,11 @@ export class NewPostComponent implements OnInit, OnDestroy {
   timeToRead: string;
 
   constructor(private userService: UserService, private router: Router) {
-    if(! this.userService.isUserLoggedIn()) {
-      this.showLoginForm = true;
-    }
     this.category = 0;
+    this.userData = {};
   }
 
   ngOnInit() {
-    this.userData = this.userService.getData();
     if(!this.showLoginForm){
       this.watchContent(true);
     }
@@ -65,13 +62,6 @@ export class NewPostComponent implements OnInit, OnDestroy {
   }
 
   checkLogin(event) {
-    if(!event) {
-      this.router.navigate(['/']);
-    } else {
-      this.userData = this.userService.getData();
-      this.showLoginForm = false;
-      this.watchContent(true);
-    }
   }
 
   savePost(title, content) {

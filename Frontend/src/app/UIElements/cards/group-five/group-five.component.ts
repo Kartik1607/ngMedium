@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import {DataModel} from '../../common/data';
+import {DataModel} from '../../../common/data';
 
 @Component({
   selector: 'app-group-five',

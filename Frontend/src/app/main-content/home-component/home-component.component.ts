@@ -28,10 +28,8 @@ export class HomeComponentComponent implements OnInit, ISticky {
   technologyData: DataModel[];
   creativeData: DataModel[];
   entreData: DataModel[];
-  userData: any;
-  showLoginForm = false;
 
-  constructor(private userService: UserService, private  router: Router) {
+  constructor(private  router: Router) {
     this.popularData = [
       {
       title: `To Grow Talent, Don’t Move Fast and Break Things — Move Slow and Build Them`,
@@ -195,18 +193,10 @@ export class HomeComponentComponent implements OnInit, ISticky {
   }
 
   ngOnInit() {
-    this.userData = this.userService.getData();
+
   }
 
   needSticky() {
     return false;
-  }
-
-  showLogin() {
-    this.showLoginForm = !this.showLoginForm;
-  }
-
-  newPost() {
-    this.router.navigate(['/write']);
   }
 }

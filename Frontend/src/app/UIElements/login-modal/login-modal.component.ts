@@ -1,6 +1,7 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {animate, state, style, transition, trigger} from "@angular/animations";
 import {UserService} from "../../Services/user.service";
+import {AuthServiceService} from "../../Services/auth-service.service";
 
 @Component({
   selector: 'app-login-modal',
@@ -20,7 +21,7 @@ export class LoginModalComponent implements OnInit {
 
   @Output() onClose: EventEmitter<string> = new EventEmitter();
 
-  constructor(private userService: UserService) {
+  constructor(private authService: AuthServiceService) {
     this.isSignUpPage = true;
     this.setValues();
   }
@@ -52,7 +53,7 @@ export class LoginModalComponent implements OnInit {
   }
 
   performLogin(name, password) {
-    this.errorMessage = null;
+    this.errorMessage = "";
     if(name.length < 6) {
       this.errorMessage = "User name must be at least 6 characters."
     }
@@ -62,19 +63,18 @@ export class LoginModalComponent implements OnInit {
     if(this.errorMessage) {
       return;
     }
-    this.userService.loginUser(name, password).subscribe(data => {
+    this.authService.loginUser(name, password).subscribe(data => {
       console.log(data);
       if(data['_id']) {
-        this.userService.setLoggedInStatus(true, data['_id']);
         this.onClose.emit(data['_id']);
       } else {
-        this.errorMessage = "Invalid username or password."
+        this.errorMessage = data['message'];
       }
     });
   }
 
   performSignUp(fullname, name, password) {
-    this.errorMessage = null;
+    this.errorMessage = "";
     if(fullname.length == 0) {
       this.errorMessage = "Full name cannot be empty."
     }
@@ -85,13 +85,12 @@ export class LoginModalComponent implements OnInit {
       this.errorMessage += "\nPassword must be at least 6 characters."
     }
     if(this.errorMessage) return;
-    this.userService.registerUser(fullname, name, password).subscribe(data => {
+    this.authService.registerUser(fullname, name, password).subscribe(data => {
       console.log(data);
       if(data['_id']) {
-        this.userService.setLoggedInStatus(true, data['_id']);
         this.onClose.emit(data['_id']);
       } else {
-        this.errorMessage = "Invalid details."
+        this.errorMessage = data['message'];
       }
     });
   }

@@ -1,5 +1,4 @@
 const passport = require('passport');
-const UserService = require('../api/Services/UserService');
 
 module.exports = function(app) {
     app.use(passport.initialize());

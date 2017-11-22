@@ -4,7 +4,7 @@ const passport = require('passport');
 
 module.exports = function(app) {
 
-    app.post('/users', (req,res) => {
+    app.post('/register', (req,res) => {
         Users.save(req.body, (err) => {
             console.log(colors.red(err));
             res.send(err);
@@ -30,5 +30,18 @@ module.exports = function(app) {
                 return res.redirect(`/api/users/username/${user.username}`);
             });
         })(req, res, next);
+    });
+
+    app.get('/loginStatus', function(req,res) {
+        if(req.user) {
+            res.redirect(`/api/users/username/${req.user}`);
+        } else {
+            res.send({status: false});
+        }
+    });
+
+    app.get('/logout', function(req, res) {
+        req.logout();
+        res.send({success: true});
     });
 };

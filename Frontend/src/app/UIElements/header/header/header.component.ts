@@ -1,7 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {animate, style, transition, trigger} from "@angular/animations";
-import {UserService} from "../../Services/user.service";
+import {UserService} from "../../../Services/user.service";
 import {Router} from "@angular/router";
+import {AuthServiceService} from "../../../Services/auth-service.service";
 
 @Component({
   selector: 'app-header',
@@ -26,9 +27,10 @@ export class HeaderComponent implements OnInit {
   @Input('sticky') sticky: boolean;
   links: [{name: string, route: string}];
   showLoginForm: boolean;
-  userData: any;
-  constructor(private userService: UserService, private router: Router) {
+  isLoggedIn: boolean;
+  constructor(private router: Router, private authService: AuthServiceService) {
     this.showLoginForm = false;
+    this.isLoggedIn = false;
     this.links = [{
       name: 'Home',
       route: ''
@@ -48,12 +50,23 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.userData = this.userService.getData();
+    this.updateLogin();
+  }
+
+  updateLogin() {
+    this.authService.isLoggedIn()
+      .subscribe(data=>{
+        if(data['_id']) {
+          this.isLoggedIn = true;
+        } else {
+          this.isLoggedIn = false;
+        }
+      });
   }
 
   toggleLoginForm(status) {
     if(status) {
-      this.userService.setLoggedInStatus(true, status);
+      this.isLoggedIn = true;
     }
     this.showLoginForm = !this.showLoginForm;
   }
@@ -63,8 +76,11 @@ export class HeaderComponent implements OnInit {
   }
 
   logout() {
-    this.userService.logout();
-    this.userData = this.userService.getData();
+    this.authService.logoutUser().subscribe(data=>{
+      if(data && data['success']) {
+        this.isLoggedIn = false;
+      }
+    })
   }
 
 }

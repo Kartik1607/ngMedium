@@ -9,9 +9,9 @@
         <a routerLink="" class="logoTitle"><h1><strong>Medium</strong></h1></a>
       </div>
       <div class="col d-flex justify-content-end">
-        <button *ngIf="userData.loginStatus" type="button" class="btn btn-outline-success align-self-center" (click)="newPost()">New Post</button>
-        <button *ngIf="!userData.loginStatus" type="button" class="btn btn-outline-success align-self-center" (click)="toggleLoginForm()">Get Started</button>
-        <button *ngIf="userData.loginStatus" type="button" class="btn btn-outline-dark align-self-center ml-4" (click)="logout()">Logout</button>
+        <button *ngIf="isLoggedIn" type="button" class="btn btn-outline-success align-self-center" (click)="newPost()">New Post</button>
+        <button *ngIf="!isLoggedIn" type="button" class="btn btn-outline-success align-self-center" (click)="toggleLoginForm()">Get Started</button>
+        <button *ngIf="isLoggedIn" type="button" class="btn btn-outline-dark align-self-center ml-4" (click)="logout()">Logout</button>
       </div>
     </div>
   </div>
