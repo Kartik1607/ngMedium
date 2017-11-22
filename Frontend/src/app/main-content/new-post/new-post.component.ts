@@ -24,13 +24,20 @@ export class NewPostComponent implements ISticky, OnInit, OnDestroy {
   constructor(private authService: AuthServiceService,
               private userService: UserService,
               private router: Router) {
-    this.category = 0;
-    this.userData = {};
-    this.showLoginForm = true;
+    if(sessionStorage.getItem('UID')){
+      this.userData = {};
+      this.toggleForm(true);
+      this.isLoggedIn = true;
+      this.showLoginForm = false;
+      this.watchContent(true);
+    }else {
+      this.category = 0;
+      this.userData = {};
+      this.showLoginForm = true;
+    }
   }
 
   ngOnInit() {
-    this.getLoggedInUser();
     this.authService.loginStatus.subscribe(data=>{
       this.toggleForm(data);
     });

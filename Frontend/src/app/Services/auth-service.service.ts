@@ -8,13 +8,16 @@ export class AuthServiceService {
   loginStatus: EventEmitter<boolean> = new EventEmitter();
 
   constructor(private http: HttpClient) {
-    this.getLoggedInUser().subscribe(data => {
-      if(data['_id']){
-        this.loginStatus.emit(true);
-      }else{
-        this.loginStatus.emit(false);
-      }
-    })
+    if(sessionStorage.getItem('UID')) {
+      this.getLoggedInUser().subscribe(data => {
+        if (data['_id']) {
+          sessionStorage.setItem('UID', data['_id']);
+          this.loginStatus.emit(true);
+        } else {
+          this.loginStatus.emit(false);
+        }
+      });
+    }
   }
 
 
@@ -24,9 +27,11 @@ export class AuthServiceService {
       .subscribe(data => {
         if(data['_id']){
           success(data);
+          sessionStorage.setItem('UID',data['_id']);
           this.loginStatus.emit(true);
         }else {
           error(data['message']);
+          sessionStorage.removeItem('UID');
           this.loginStatus.emit(false);
         }
       });
@@ -41,9 +46,11 @@ export class AuthServiceService {
       }).subscribe(data => {
       if(data['_id']) {
         success(data);
+        sessionStorage.setItem('UID',data['_id']);
         this.loginStatus.emit(true);
       } else {
         error(data['message']);
+        sessionStorage.removeItem('UID');
         this.loginStatus.emit(false);
       }
     });
@@ -53,6 +60,7 @@ export class AuthServiceService {
     this.http.get(`${this.API_URL}/logout`)
       .subscribe(data => {
         if(data && data['success']) {
+          sessionStorage.removeItem('UID');
           this.loginStatus.emit(false);
         }else{
           this.loginStatus.emit(true);
