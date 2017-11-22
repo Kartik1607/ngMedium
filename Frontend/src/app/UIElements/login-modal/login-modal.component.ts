@@ -63,13 +63,10 @@ export class LoginModalComponent implements OnInit {
     if(this.errorMessage) {
       return;
     }
-    this.authService.loginUser(name, password).subscribe(data => {
-      console.log(data);
-      if(data['_id']) {
-        this.onClose.emit(data['_id']);
-      } else {
-        this.errorMessage = data['message'];
-      }
+    this.authService.loginUser(name, password, (data)=>{
+      this.onClose.emit(data['_id']);
+    },(err) => {
+      this.errorMessage = err;
     });
   }
 
@@ -85,13 +82,11 @@ export class LoginModalComponent implements OnInit {
       this.errorMessage += "\nPassword must be at least 6 characters."
     }
     if(this.errorMessage) return;
-    this.authService.registerUser(fullname, name, password).subscribe(data => {
-      console.log(data);
-      if(data['_id']) {
+    this.authService.registerUser(fullname, name, password,
+      (data)=>{
         this.onClose.emit(data['_id']);
-      } else {
-        this.errorMessage = data['message'];
-      }
-    });
+      }, (err)=>{
+        this.errorMessage = err;
+      });
   }
 }

@@ -9,4 +9,7 @@ export class UserService{
   constructor(private http: HttpClient) {
   }
 
+  public getUserById(uid) {
+    return this.http.get(`${this.API_URL}/users/${uid}`);
+  }
 }

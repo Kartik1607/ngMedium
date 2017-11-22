@@ -1,6 +1,8 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {UserService} from "../../Services/user.service";
 import {Router} from "@angular/router";
+import {AuthServiceService} from "../../Services/auth-service.service";
+import {ISticky} from "../../common/ISticky";
 
 declare const $:any;
 
@@ -9,24 +11,52 @@ declare const $:any;
   templateUrl: './new-post.component.html',
   styleUrls: ['./new-post.component.css']
 })
-export class NewPostComponent implements OnInit, OnDestroy {
+export class NewPostComponent implements ISticky, OnInit, OnDestroy {
 
   category: number;
-
   userData: any;
   image;
   showLoginForm: boolean = false;
   timeToReadInterval;
   timeToRead: string;
+  isLoggedIn = false;
 
-  constructor(private userService: UserService, private router: Router) {
+  constructor(private authService: AuthServiceService,
+              private userService: UserService,
+              private router: Router) {
     this.category = 0;
     this.userData = {};
+    this.showLoginForm = true;
   }
 
   ngOnInit() {
-    if(!this.showLoginForm){
-      this.watchContent(true);
+    this.getLoggedInUser();
+    this.authService.loginStatus.subscribe(data=>{
+      this.toggleForm(data);
+    });
+  }
+
+  getLoggedInUser() {
+    this.authService.getLoggedInUser().subscribe(user => {
+      if(user['_id']) {
+        this.userData = user;
+        this.isLoggedIn = true;
+        this.showLoginForm = false;
+        this.watchContent(true);
+      }else{
+        this.toggleForm(false);
+      }
+    });
+  }
+
+  toggleForm(value) {
+    if(value){
+      this.getLoggedInUser();
+    } else {
+      this.userData = {};
+      this.isLoggedIn = false;
+      this.showLoginForm = true;
+      this.watchContent(false);
     }
   }
 
@@ -50,6 +80,7 @@ export class NewPostComponent implements OnInit, OnDestroy {
       clearInterval(this.timeToReadInterval);
     }
   }
+
   onImageChange(event) {
     if(! (event.target.files && event.target.files[0])) {
       return;
@@ -62,8 +93,22 @@ export class NewPostComponent implements OnInit, OnDestroy {
   }
 
   checkLogin(event) {
+    if(event) {
+      this.userService.getUserById(event)
+        .subscribe(data => {
+          this.userData = data;
+          this.showLoginForm = false;
+          this.isLoggedIn = true;
+        });
+    } else {
+      this.router.navigate(['/']);
+    }
   }
 
   savePost(title, content) {
+  }
+
+  needSticky() {
+   return true;
   }
 }
