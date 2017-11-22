@@ -1,13 +1,19 @@
-const express = require('express');
-const app = express();
-const mongoose = require('mongoose');
+/** Utilities **/
 const constants = require('./constants');
 const colors = require('colors/safe');
-const bodyParser = require('body-parser');
 const path = require('path');
+/** Database **/
+const mongoose = require('mongoose');
+/** Server **/
+const express = require('express');
+const app = express();
+const bodyParser = require('body-parser');
 const cors = require('cors');
-const api = require('./api/apiRoute');
+/** Authentication **/
+const session = require('express-session');
+const cookieParser = require('cookie-parser');
 
+/** DB OPERATION **/
 mongoose.connect(constants.mongoURL);
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, colors.red('connection error:')));
@@ -15,9 +21,15 @@ db.once('open', () => {
     console.log(colors.green('Connceted to MongoDB. YAY'))
 });
 
+
+/** EXPRESS MIDDLEWARE AND SETUP **/
+app.use(express.static(path.join(__dirname, 'dist')));
 app.use(cors());
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, 'dist')));
+app.use(bodyParser.urlencoded());
+app.use(cookieParser());
+app.use(session({ secret: "Scooby Doo"}));
+require('./config/passport')(app);
 app.use('/api', require('./api/apiRoute'));
 
 app.get('*',(req,res)=>{

@@ -5,7 +5,7 @@ import {HttpClient} from "@angular/common/http";
 export class UserService{
 
 
-  private API_URL = 'http://localhost:3000';
+  private API_URL = 'http:localhost:3000/api';
   private data:{
     loginStatus: boolean,
     userId?: string,
@@ -15,7 +15,6 @@ export class UserService{
     this.data = {
       loginStatus: false
     };
-    this.isUserLoggedIn();
   }
 
   public getData() {
@@ -23,15 +22,7 @@ export class UserService{
   }
 
   public isUserLoggedIn() {
-    const uid = localStorage.getItem('UID');
-    if ( uid ) {
-      this.data.loginStatus = true;
-      this.updateData(uid);
-      return true;
-    } else {
-      this.data.loginStatus = false;
-      return false;
-    }
+    this.http.get('/login/')
   }
 
   private updateData(uid) {
@@ -46,14 +37,7 @@ export class UserService{
   }
 
   public setLoggedInStatus(status: boolean, uid?) {
-    if (status ) {
-      localStorage.setItem('UID', uid);
-      this.data.loginStatus = true;
-      this.updateData(uid);
-    } else {
-      localStorage.removeItem('UID');
-      this.data.loginStatus = false;
-    }
+
   }
 
   public loginUser(username, password) {
@@ -71,7 +55,6 @@ export class UserService{
   }
 
   public logout() {
-    localStorage.removeItem('UID');
-    this.data = {loginStatus: false};
+
   }
 }

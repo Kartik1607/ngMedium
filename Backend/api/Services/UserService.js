@@ -28,8 +28,8 @@ module.exports = {
     },
 
     save: function (model, error, success) {
-        this.findByUserName(model.userName, (err)=>{}, (userFind)=>{
-           if(userFind.length > 0) {
+        this.findByUserName(model.username, (err)=>{}, (userFind)=>{
+           if(userFind) {
                error({data:"User Already Exists"});
                return;
            }

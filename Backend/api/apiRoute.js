@@ -1,9 +1,11 @@
 const express = require('express');
 const router = express.Router();
 
-const imageRoute = require('./RestControllers/imageController')(router);
-const postRoute = require('./RestControllers/PostController')(router);
-const userRoute = require('./RestControllers/UserController')(router);
+require('./RestControllers/imageController')(router);
+require('./RestControllers/PostController')(router);
+require('./RestControllers/UserController')(router);
+require('./RestControllers/AuthController')(router);
+
 
 router.get('/', (req,res)=>{
     res.send("API ROUTE");
