@@ -14,9 +14,13 @@ export class CategoryComponentComponent implements OnInit, ISticky {
   @Input() category: string;
   data: PostModel[];
   renderData: any[];
+  headTitle: string;
+  headSubTitle: string;
   dataRequest;
   constructor(private postService: PostService, private route: ActivatedRoute) {
     this.data = [];
+    this.headTitle = '';
+    this.headSubTitle = '';
     /*this.data = [
       {
         title: `To Grow Talent, Don’t Move Fast and Break Things — Move Slow and Build Them`,
@@ -210,6 +214,28 @@ export class CategoryComponentComponent implements OnInit, ISticky {
     this.route.paramMap.subscribe(params => {
       if(this.dataRequest) {
         this.dataRequest.unsubscribe();
+      }
+      switch(params.get('category')){
+        case 'technology' : {
+          this.headTitle = 'Technology';
+          this.headSubTitle = 'The download.'
+          break;
+        }
+        case 'creativity' : {
+          this.headTitle = 'Creativity';
+          this.headSubTitle = 'Of muses and mistakes.';
+          break;
+        }
+        case 'entrepreneurship': {
+          this.headTitle = 'Entrepreneurship';
+          this.headSubTitle = 'You\'re the boss.';
+          break;
+        }
+        case 'popular': {
+          this.headTitle = 'Popular';
+          this.headSubTitle = 'What’s trending on Medium right now.';
+          break;
+        }
       }
       this.dataRequest = this.postService.getPostsByCategory(params.get('category'))
         .subscribe(posts => {

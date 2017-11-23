@@ -1,5 +1,5 @@
 <div class="container">
-  <app-head headTitle="Technology" headSubTitle="The download."></app-head>
+  <app-head headTitle={{headTitle}} headSubTitle={{headSubTitle}}></app-head>
 
   <div *ngFor="let item of renderData">
     <app-group-four *ngIf="item.type === 0" [data]="item.data"></app-group-four>
