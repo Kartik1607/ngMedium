@@ -10,7 +10,13 @@
   <div class="post-content width60">
     {{data?.content}}
     <br>
-    <i class="fa fa-trash-o fav hoverable" *ngIf="userId" (click)="deletePost()">&nbsp;Delete </i>
-    <i class="fa fa-heart-o fav hoverable" *ngIf="!userId" (click)="addToFavourite()">&nbsp;Add to Favourite</i>
+  </div>
+  <div class="width60">
+  <i class="fa fa-trash-o fav hoverable mr-4"
+     *ngIf="userId && userId==data?.user._id" (click)="deletePost()">&nbsp;Unpublish</i>
+  <i class="fa fa-heart-o fav hoverable"
+     *ngIf="userId && userId != data?.user._id && !isFavourite" (click)="addToFavourite()">&nbsp;Favourite</i>
+  <i class="fa fa-heart fav hoverable"
+     *ngIf="userId && userId != data?.user._id && isFavourite" (click)="removeFromFavourites()">&nbsp;Unfavourite</i>
   </div>
 </div>
