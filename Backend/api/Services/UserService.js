@@ -46,7 +46,8 @@ module.exports = {
     },
 
     addPost: function(userId, postId, error, success) {
-        UserModel.findByIdAndUpdate(userId, { $push: { posts: postId }},
+        console.log("IN" + userId + " " + postId);
+        UserModel.findByIdAndUpdate(userId, { $addToSet: { posts: postId }},
             { new: true })
             .populate('posts')
             .populate('favourites')
@@ -60,7 +61,7 @@ module.exports = {
     },
 
     addFavourite: function(userId, postId, error, success) {
-        UserModel.findByIdAndUpdate(userId, { $push: { favourites: postId }},
+        UserModel.findByIdAndUpdate(userId, { $addToSet: { favourites: postId }},
             { new: true })
             .populate('posts')
             .populate('favourites')

@@ -21,7 +21,7 @@ module.exports = function(app) {
         });
     });
 
-    app.patch('/users/:userId/favourites/:postId', (req, res) => {
+    app.put('/users/:userId/favourites/:postId', (req, res) => {
         Users.addFavourite(req.params.userId, req.params.postId,
             (err)=>{
                 console.log(colors.red(err));
@@ -41,7 +41,7 @@ module.exports = function(app) {
             })
     });
 
-    app.patch('/users/:userId/posts/:postId', (req, res) => {
+    app.put('/users/:userId/posts/:postId', (req, res) => {
         Users.addPost(req.params.userId, req.params.postId,
             (err)=>{
                 console.log(colors.red(err));

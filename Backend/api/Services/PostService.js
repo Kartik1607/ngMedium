@@ -9,7 +9,7 @@ module.exports = {
         if(limit === 0) {
             PostModel.find()
                 .populate('user', 'name _id')
-                .sort({totalClaps: -1})
+                .sort({totalFavourites: -1})
                 .exec((err, posts) => {
                     if (err) {
                         error()
@@ -20,7 +20,7 @@ module.exports = {
         }else {
             PostModel.find()
                 .populate('user', 'name _id')
-                .sort({totalClaps: -1})
+                .sort({totalFavourites: -1})
                 .limit(limit)
                 .exec((err, posts) => {
                     if (err) {

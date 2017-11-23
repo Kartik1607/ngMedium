@@ -1,7 +1,7 @@
 <div class="modalGradient">
   <div class="myModal" [ngStyle]="{'background-color': (isSignUpPage ? '#E8F3EC': '#D7EFEE')}">
     <img src={{modalImage}} class="modalImg"/>
-    <i class="fa fa-times pull-right m-3" aria-hidden="true"
+    <i class="fa fa-times pull-right m-3 hoverable" aria-hidden="true"
     (click)="onClose.emit(null)"></i>
     <div>
       <div class="myModalContainer my-auto">

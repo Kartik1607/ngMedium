@@ -8,7 +8,7 @@ let postSchema = new mongoose.Schema({
     content: String,
     date: { type: Date, default: Date.now },
     timeToRead: String,
-    totalClaps: Number,
+    totalFavourites: Number,
     image: String,
     user: {type: Schema.Types.ObjectId, ref: 'User'}
 });
