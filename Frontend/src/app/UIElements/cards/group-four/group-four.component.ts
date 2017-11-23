@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import {DataModel} from '../../../common/data';
+import {PostModel} from '../../../common/data';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-group-four',
@@ -8,10 +9,13 @@ import {DataModel} from '../../../common/data';
 })
 export class GroupFourComponent implements OnInit {
 
-  @Input() data: DataModel[]
-  constructor() { }
+  @Input() data: PostModel[]
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
+  showPost(postId) {
+    this.router.navigate(['/posts',postId])
+  }
 }

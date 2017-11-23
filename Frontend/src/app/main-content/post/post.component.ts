@@ -1,5 +1,8 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ISticky} from "../../common/ISticky";
+import {PostModel} from "../../common/data";
+import {PostService} from "../../Services/post.service";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-post',
@@ -8,9 +11,20 @@ import {ISticky} from "../../common/ISticky";
 })
 export class PostComponent implements OnInit, ISticky {
 
-  constructor() { }
+  data: PostModel;
+  imgSrc: string;
+  constructor(private postService: PostService, private route: ActivatedRoute) {
+    this.imgSrc = "";
+  }
 
   ngOnInit() {
+    this.route.paramMap.subscribe(params=>{
+      this.postService.getPostById(params.get('id'))
+        .subscribe(data=>{
+          this.data = <PostModel> data;
+          this.imgSrc = `/public/${this.data.image}`;
+        })
+    });
   }
 
   needSticky() {

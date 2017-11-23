@@ -1,6 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
-import {DataModel} from '../../common/data';
+import {PostModel} from '../../common/data';
 import {ISticky} from "../../common/ISticky";
+import {PostService} from "../../Services/post.service";
+import {ActivatedRoute} from "@angular/router";
+import {PartialObserver} from "rxjs/Observer";
 
 @Component({
   selector: 'app-category-component',
@@ -9,10 +12,12 @@ import {ISticky} from "../../common/ISticky";
 })
 export class CategoryComponentComponent implements OnInit, ISticky {
   @Input() category: string;
-  data: DataModel[];
+  data: PostModel[];
   renderData: any[];
-  constructor() {
-    this.data = [
+  dataRequest;
+  constructor(private postService: PostService, private route: ActivatedRoute) {
+    this.data = [];
+    /*this.data = [
       {
         title: `To Grow Talent, Don’t Move Fast and Break Things — Move Slow and Build Them`,
         authorName: `Alida Miranda-Wolff`,
@@ -173,13 +178,14 @@ export class CategoryComponentComponent implements OnInit, ISticky {
         id: '0'
       }];
     this.data = this.data.concat(technologyData).concat(creativeData).concat(entreData);
+    */
   }
 
   setRenderData() {
     this.renderData = []
     let type = 0;
     for (let i = 0; i < this.data.length;) {
-      const currentData: DataModel[] = [];
+      const currentData: PostModel[] = [];
       const remaining = this.data.length - i;
       if (remaining < 5 || type === 0) {
         for (let j = 0; j < 4 && i < this.data.length; ++j) {
@@ -201,7 +207,16 @@ export class CategoryComponentComponent implements OnInit, ISticky {
     }
   }
   ngOnInit() {
-    this.setRenderData();
+    this.route.paramMap.subscribe(params => {
+      if(this.dataRequest) {
+        this.dataRequest.unsubscribe();
+      }
+      this.dataRequest = this.postService.getPostsByCategory(params.get('category'))
+        .subscribe(posts => {
+          this.data = <PostModel[]> posts;
+          this.setRenderData();
+        })
+    });
   }
 
   needSticky() {

@@ -24,6 +24,7 @@ db.once('open', () => {
 
 /** EXPRESS MIDDLEWARE AND SETUP **/
 app.use(express.static(path.join(__dirname, 'dist')));
+app.use('/public', express.static(path.join(__dirname, 'public')));
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());

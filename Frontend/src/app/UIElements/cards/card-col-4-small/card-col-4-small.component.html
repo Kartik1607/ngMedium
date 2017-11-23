@@ -1,9 +1,13 @@
 <div class="card">
-  <div class="main-img" [style.background-image]="imgUrl"> </div>
+  <div class="main-img hoverable" [style.background-image]="imgUrl"
+       (click)="selected.emit(data._id)"> </div>
   <div class="card-body">
-    <h4 class="card-title">{{data.title}}</h4>
-    <div class="bottomContainer m-2">
-      <app-author-bar [timeToRead]="timeToRead" [publishDate]="formattedDate" [authorName]="data.authorName">
+    <h4 class="card-title hoverable"
+        (click)="selected.emit(data._id)">{{data.title}}</h4>
+    <div class="bottomContainer m-2 hoverable"
+         (click)="selected.emit(data._id)">
+      <app-author-bar [timeToRead]="data.timeToRead"
+                      [publishDate]="formattedDate" [authorName]="data.user.name">
       </app-author-bar>
     </div>
   </div>

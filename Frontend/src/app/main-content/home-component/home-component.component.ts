@@ -1,44 +1,35 @@
 import { Component, OnInit } from '@angular/core';
-import {DataModel} from '../../common/data';
+import {PostModel} from '../../common/data';
 import {ISticky} from "../../common/ISticky";
 import {animate, style, transition, trigger} from "@angular/animations";
 import {UserService} from "../../Services/user.service";
 import {Router} from "@angular/router";
+import {PostService} from "../../Services/post.service";
 @Component({
   selector: 'app-home-component',
   templateUrl: './home-component.component.html',
-  styleUrls: ['./home-component.component.css'],
-  animations: [
-    trigger(
-      'enterAnimation', [
-        transition(':enter', [
-          style({opacity: 0}),
-          animate('100ms', style({opacity: 1}))
-        ]),
-        transition(':leave', [
-          style({opacity: 1}),
-          animate('100ms', style({opacity: 0}))
-        ])
-      ]
-    )
-  ],
+  styleUrls: ['./home-component.component.css']
 })
 export class HomeComponentComponent implements OnInit, ISticky {
-  popularData: DataModel[];
-  technologyData: DataModel[];
-  creativeData: DataModel[];
-  entreData: DataModel[];
+  popularData: PostModel[] = [];
+  technologyData: PostModel[] = [];
+  creativeData: PostModel[] = [];
+  entreData: PostModel[] = [];
 
-  constructor(private  router: Router) {
-    this.popularData = [
+  constructor(private postService: PostService) {
+    /*this.popularData = [
       {
-      title: `To Grow Talent, Don’t Move Fast and Break Things — Move Slow and Build Them`,
-      authorName: `Alida Miranda-Wolff`,
+        title: `To Grow Talent, Don’t Move Fast and Break Things — Move Slow and Build Them`,
+        category:'popular',
+      user: {
+        _id: '1',
+        name: `Alida Miranda-Wolff`,
+      },
       content: `This is part one in a new series on culture-building, talent attraction and retention, and organizational development in technology companies.`,
-      imgUrl: `https://cdn-images-1.medium.com/max/1600/1*1Wr_qMieyYWEYedXXilyKg.jpeg`,
-      ratings: 0,
-      publishDate: '0',
-      id: '0'
+      image: `https://cdn-images-1.medium.com/max/1600/1*1Wr_qMieyYWEYedXXilyKg.jpeg`,
+      date: '0',
+      _id: '0',
+        timeToRead: '0 min read'
     }, {
       title: `How Grammarly Quietly Grew Its Way to 6.9 Million Daily Users in 9 Years`,
       authorName: `Hiten Shah`,
@@ -189,11 +180,17 @@ export class HomeComponentComponent implements OnInit, ISticky {
         ratings: 0,
         publishDate: '0',
         id: '0'
-      }];
+      }];*/
   }
 
   ngOnInit() {
-
+    this.postService.getPosts()
+      .subscribe(posts => {
+        this.popularData = posts['popular'];
+        this.creativeData = posts['creativity'];
+        this.technologyData = posts['technology'];
+        this.entreData = posts['entrepreneurship'];
+      });
   }
 
   needSticky() {

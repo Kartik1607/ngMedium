@@ -1,9 +1,13 @@
-export interface DataModel {
-  id: string;
-  authorName: string;
-  title: string;
-  imgUrl: string;
-  publishDate: string;
-  ratings: number;
-  content: string;
+export interface PostModel {
+  "_id": string,
+  "title": string,
+  "category": string,
+  "content": string,
+  "image": string,
+  "user": {
+    "_id": string,
+    "name": string
+  },
+  "timeToRead": string,
+  "date": string
 }

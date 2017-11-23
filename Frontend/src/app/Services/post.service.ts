@@ -43,4 +43,16 @@ export class PostService {
         })
     });
   }
+
+  getPosts() {
+    return this.http.get(`${this.API_URL}/posts`);
+  }
+
+  getPostsByCategory(category) {
+    return this.http.get(`${this.API_URL}/category/${category}`);
+  }
+
+  getPostById(id) {
+    return this.http.get(`${this.API_URL}/posts/${id}`);
+  }
 }
