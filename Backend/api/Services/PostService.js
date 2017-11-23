@@ -102,5 +102,15 @@ module.exports = {
             ++found;
             if(found === 4) { success(result) };
         });
+    },
+
+    deletePost(postId, error, success) {
+        PostModel.find({_id: postId}).remove().exec((err, post) => {
+            if(err) {
+                error(err);
+            } else {
+                success(post);
+            }
+        })
     }
 };

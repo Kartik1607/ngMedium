@@ -1,4 +1,5 @@
 const Users = require('../Services/UserService');
+const Posts = require('../Services/PostService');
 const colors = require('colors');
 
 module.exports = function(app) {
@@ -56,7 +57,12 @@ module.exports = function(app) {
                 console.log(colors.red(err));
                 res.send(err);
             }, (user) => {
-                res.send(user);
+                Posts.deletePost(req.params.postId, (err) => {
+                    console.log(colors.red(err));
+                    res.send(err);
+                }, () => {
+                    res.send(user);
+                });
             })
     });
 

@@ -1,4 +1,5 @@
 const Posts = require('../Services/PostService');
+const Users = require('../Services/UserService');
 const colors = require('colors');
 const constants = require('../../constants');
 
@@ -29,11 +30,17 @@ module.exports = function(app) {
         Posts.save(post, (err) => {
             console.log(colors.red(err));
             res.send(err);
-        }, (contact) => {
-            res.send(contact)
+        }, (newPost) => {
+            console.log(newPost.user);
+            Users.addPost(post.user, newPost._id,
+                (err)=>{
+                    console.log(colors.red(err));
+                    res.send(err);
+                }, () => {
+                    res.send(newPost);
+                })
         })
     });
-
 
     app.get('/posts/:id', (req, res) => {
         Posts.findById(req.params.id, (err) => {
