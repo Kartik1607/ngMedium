@@ -35,6 +35,7 @@ export class PostService {
       imgData.set('avatar', image);
       this.http.post(`${this.API_URL}/upload`, imgData)
         .subscribe(data => {
+          console.log(data);
           if(data['filename']) {
             resolve(data['filename']);
           } else {

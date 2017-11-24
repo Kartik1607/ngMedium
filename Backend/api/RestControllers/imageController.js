@@ -26,7 +26,7 @@ module.exports = function (app) {
                     .makePublic()
                     .then(() => {
                         console.log(`uploaded to ${bucketName}.`);
-                        res.send(`https://storage.googleapis.com/${bucketName}/${req.file.filename}`);
+                        res.send({filename:`https://storage.googleapis.com/${bucketName}/${req.file.filename}`});
                     })
                     .catch(err => {
                         console.error('ERROR:', err);
