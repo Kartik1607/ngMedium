@@ -62,7 +62,7 @@ export class PostComponent implements OnInit, ISticky, OnDestroy {
           if(! data['_id']) {
             this.router.navigate(['/error404']);
           }
-          this.imgSrc = `/public/${this.data.image}`;
+          this.imgSrc = `${this.data.image}`;
           if(this.userId) {
             this.updateFavourite();
           }

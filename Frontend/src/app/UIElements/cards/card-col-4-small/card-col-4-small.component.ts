@@ -14,6 +14,6 @@ export class CardCol4SmallComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    this.imgUrl = `url('/public/${this.data.image}')`;
+    this.imgUrl = `url('${this.data.image}')`;
   }
 }

@@ -14,7 +14,7 @@ export class CardCol6Component implements OnInit {
   constructor() {}
 
   private  getBackgroundImage(name: string): string {
-    return `url('/public/${name}')`;
+    return `url('${name}')`;
   }
 
   private formatDate(date: string): string{
