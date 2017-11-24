@@ -48,6 +48,12 @@ export class HeaderComponent implements OnInit, OnDestroy {
       name: 'Popular',
       route: 'category/popular'
     }];
+    if(sessionStorage.getItem('UID') && this.links.length == 5){
+      this.links.push({
+        name: 'Favourites',
+        route: 'category/favourite'
+      });
+    }
   }
 
   ngOnInit() {
@@ -55,13 +61,21 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    console.log('INDESTRI');
     this.authService.loginStatus.unsubscribe();
   }
 
   updateLogin() {
     this.authService.loginStatus.subscribe(data=>{
       this.isLoggedIn = data;
+      if(data && this.links.length ==5) {
+        this.links.push({
+          name: 'Favourites',
+          route: 'category/favourite'
+        });
+      }
+      if(!data && this.links.length == 6) {
+        this.links.pop();
+      }
     })
   }
 

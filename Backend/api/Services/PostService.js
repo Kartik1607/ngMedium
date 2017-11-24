@@ -112,5 +112,27 @@ module.exports = {
                 success(post);
             }
         })
+    },
+
+    increaseRating(postId, error, success) {
+        PostModel.findByIdAndUpdate(postId, {$inc : {totalFavourites: 1}})
+            .exec((err, post) => {
+                if(err) {
+                    error(err);
+                } else {
+                    success(post);
+                }
+            })
+    },
+
+    decreaseRating(postId, error, success) {
+        PostModel.findByIdAndUpdate(postId, {$inc : {totalFavourites: -1}})
+            .exec((err, post) => {
+                if(err) {
+                    error(err);
+                } else {
+                    success(post);
+                }
+            })
     }
 };

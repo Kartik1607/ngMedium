@@ -4,7 +4,7 @@ import {HttpClient} from "@angular/common/http";
 @Injectable()
 export class UserService{
 
-  private API_URL = 'http://localhost:3000/api';
+  private API_URL = '/api';
 
   constructor(private http: HttpClient) {
   }

@@ -30,11 +30,9 @@ export class PostComponent implements OnInit, ISticky, OnDestroy {
     this.userService.getUserById(this.userId)
       .subscribe(data=>{
         let favourites = data['favourites'];
-        console.log(favourites);
         let contains = false;
         for(let i = 0; i <favourites.length; ++i) {
           let item = favourites[i];
-          console.log(item);
           if(item['_id'] === this.data._id){
             contains = true;
             break;

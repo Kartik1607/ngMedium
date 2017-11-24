@@ -2,8 +2,9 @@ import { Component, OnInit, Input } from '@angular/core';
 import {PostModel} from '../../common/data';
 import {ISticky} from "../../common/ISticky";
 import {PostService} from "../../Services/post.service";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {PartialObserver} from "rxjs/Observer";
+import {UserService} from "../../Services/user.service";
 
 @Component({
   selector: 'app-category-component',
@@ -17,7 +18,8 @@ export class CategoryComponentComponent implements OnInit, ISticky {
   headTitle: string;
   headSubTitle: string;
   dataRequest;
-  constructor(private postService: PostService, private route: ActivatedRoute) {
+  constructor(private postService: PostService, private route: ActivatedRoute,
+              private router: Router, private  userService: UserService) {
     this.data = [];
     this.headTitle = '';
     this.headSubTitle = '';
@@ -236,12 +238,28 @@ export class CategoryComponentComponent implements OnInit, ISticky {
           this.headSubTitle = 'What’s trending on Medium right now.';
           break;
         }
+        case 'favourite': {
+          this.headTitle = 'Favourite';
+          this.headSubTitle = 'Your unique collection';
+        }
       }
-      this.dataRequest = this.postService.getPostsByCategory(params.get('category'))
-        .subscribe(posts => {
-          this.data = <PostModel[]> posts;
-          this.setRenderData();
-        })
+      if(params.get('category') === 'favourite') {
+        if (sessionStorage.getItem('UID')) {
+          this.dataRequest = this.userService.getUserById(sessionStorage.getItem('UID'))
+            .subscribe(data => {
+              this.data = <PostModel[]> data['favourites'];
+              this.setRenderData();
+            });
+        } else {
+          this.router.navigate(['/']);
+        }
+      }else {
+        this.dataRequest = this.postService.getPostsByCategory(params.get('category'))
+          .subscribe(posts => {
+            this.data = <PostModel[]> posts;
+            this.setRenderData();
+          })
+      }
     });
   }
 

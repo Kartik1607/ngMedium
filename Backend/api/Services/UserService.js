@@ -1,5 +1,6 @@
 const userSchema = require('../Models/User').schema;
 const mongoose = require('mongoose');
+const postService = require('./PostService');
 
 const UserModel = mongoose.model('User', userSchema);
 
@@ -46,7 +47,6 @@ module.exports = {
     },
 
     addPost: function(userId, postId, error, success) {
-        console.log("IN" + userId + " " + postId);
         UserModel.findByIdAndUpdate(userId, { $addToSet: { posts: postId }},
             { new: true })
             .populate('posts')
@@ -69,7 +69,11 @@ module.exports = {
                 if (err){
                     error(err);
                 } else {
-                    success(user);
+                    postService.increaseRating(postId, (err)=>{
+                        error(err);
+                    }, ()=>{
+                        success(user);
+                    });
                 }
             });
     },
@@ -83,7 +87,11 @@ module.exports = {
                 if(err) {
                     error(err);
                 } else {
-                    success(user);
+                    postService.decreaseRating(postId, (err)=>{
+                        error(err);
+                    }, ()=>{
+                       success(user);
+                    });
                 }
             });
     },
