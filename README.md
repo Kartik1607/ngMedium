@@ -12,7 +12,13 @@ Live Demo is hosted using [Heroku](ng-medium.herokuapp.com/)
 
 ## Development server
 
-Run `ng build --base-href="/"` from Frontend folder for compiling angular code.. Navigate to Backend folder. `node index.js`.
+Application uses [Cloudinary](http://www.cloudinary.com) to save images. 
+You must first [configure the environment](https://cloudinary.com/documentation/node_integration#getting_started_guide) variables to use the application.
+
+
+Run `ng build --base-href="/"` from Frontend folder for compiling angular code
+
+Navigate to Backend folder. `node index.js`.
 
 
 ## Built With  :heart:   using
