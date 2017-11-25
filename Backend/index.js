@@ -12,7 +12,8 @@ const cors = require('cors');
 /** Authentication **/
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
-
+/** CLOUDINARY **/
+require('./config/cloudinary');
 /** DB OPERATION **/
 mongoose.connect(constants.mongoURL);
 const db = mongoose.connection;

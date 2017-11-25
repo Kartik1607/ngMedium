@@ -1,7 +1,5 @@
 const multer = require('multer');
-const Storage = require('@google-cloud/storage');
-const bucketName = 'medium-images';
-const cloudStorage = new Storage();
+const cloudinary = require('cloudinary');
 
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -17,23 +15,8 @@ const upload = multer({ storage: storage });
 
 module.exports = function (app) {
     app.post('/upload', upload.single('avatar'), function (req, res) {
-        cloudStorage
-            .bucket(bucketName)
-            .upload(req.file.path)
-            .then(()=>{
-                cloudStorage.bucket(bucketName)
-                    .file(req.file.filename)
-                    .makePublic()
-                    .then(() => {
-                        console.log(`uploaded to ${bucketName}.`);
-                        res.send({filename:`https://storage.googleapis.com/${bucketName}/${req.file.filename}`});
-                    })
-                    .catch(err => {
-                        console.error('ERROR:', err);
-                        res.send(err);
-                    });
-            });
-
-
+        cloudinary.uploader.upload(req.file.path, (result) => {
+            res.send({filename:result.url});
+        });
     });
 };
