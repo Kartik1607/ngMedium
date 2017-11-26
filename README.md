@@ -8,7 +8,7 @@ This project was part of training at <a href='http://www.nagarro.com/en'>Nagarro
 
 ## Live Demo
 
-Live Demo is hosted using [Heroku](ng-medium.herokuapp.com/)
+Live Demo is hosted using [Heroku](http://ng-medium.herokuapp.com/)
 
 ## Development server
 
